@@ -1,0 +1,24 @@
+[project]
+name = "cogent"
+version = "0.1.0"
+description = "COGENT: Cognitive Orchestration for Grounded Evidence-based Nuanced Thinking"
+requires-python = ">=3.11"
+
+[tool.pytest.ini_options]
+# Adds both the monorepo root and backend/ to sys.path for all pytest runs.
+# This lets experiments.* and benchmark.* import from app.* without PYTHONPATH hacks.
+pythonpath = [
+    ".",          # cogent root  →  experiments.*, benchmark.*
+    "backend",    # backend root  →  app.*, (app.config, app.schemas, …)
+]
+testpaths = [
+    "backend/tests",          # Layer 1–10 unit tests + integration tests
+]
+filterwarnings = [
+    "ignore:The anyio.abc.BlockingPortal alias is deprecated:DeprecationWarning:starlette.testclient",
+]
+
+[tool.mypy]
+python_version = "3.11"
+mypy_path = [".", "backend"]
+ignore_missing_imports = true

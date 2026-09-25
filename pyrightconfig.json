@@ -1,0 +1,46 @@
+{
+  "pythonVersion": "3.14",
+  "pythonPlatform": "Windows",
+
+  "venvPath": "backend",
+  "venv": ".venv",
+
+  "extraPaths": [
+    ".",
+    "backend"
+  ],
+
+  "include": [
+    "backend/app",
+    "backend/tests",
+    "experiments",
+    "benchmark"
+  ],
+
+  "exclude": [
+    "**/node_modules",
+    "**/__pycache__",
+    "backend/.venv",
+    "backend/alembic/versions"
+  ],
+
+  "typeCheckingMode": "off",
+  "useLibraryCodeForTypes": true,
+
+  "reportMissingImports": "none",
+  "reportMissingModuleSource": "none",
+  "reportReturnType": "none",
+  "reportArgumentType": "none",
+  "reportOperatorIssue": "none",
+  "reportCallIssue": "none",
+  "reportOptionalMemberAccess": "none",
+  "reportAttributeAccessIssue": "none",
+  "reportOptionalSubscript": "none",
+  "reportGeneralTypeIssues": "none",
+  "reportAssignmentType": "none",
+  "reportUnsupportedDunderAll": "none",
+  "reportInvalidTypeForm": "none",
+  "reportUnusedImport": "none",
+  "reportUnusedVariable": "none",
+  "reportUndefinedVariable": "warning"
+}

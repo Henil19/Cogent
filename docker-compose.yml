@@ -1,0 +1,74 @@
+services:
+  # ============================================
+  # PostgreSQL Database
+  # ============================================
+  db:
+    image: postgres:15-alpine
+    container_name: cogent_db
+    restart: unless-stopped
+    environment:
+      POSTGRES_USER: cogent_user
+      POSTGRES_PASSWORD: cogent_secret_2024
+      POSTGRES_DB: cogent_db
+    ports:
+      - "5432:5432"
+    volumes:
+      - cogent_pgdata:/var/lib/postgresql/data
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U cogent_user -d cogent_db"]
+      interval: 10s
+      timeout: 5s
+      retries: 5
+
+  # ============================================
+  # FastAPI Backend
+  # ============================================
+  backend:
+    build:
+      context: ./backend
+      dockerfile: Dockerfile
+    container_name: cogent_backend
+    restart: unless-stopped
+    ports:
+      - "8000:8000"
+    environment:
+      - DATABASE_URL=postgresql://cogent_user:cogent_secret_2024@db:5432/cogent_db
+      - JWT_SECRET=cogent-jwt-secret-key-change-in-production-2024
+      - JWT_ALGORITHM=HS256
+      - JWT_EXPIRATION_MINUTES=1440
+      - OPENAI_API_KEY=${OPENAI_API_KEY:-sk-placeholder}
+      - OPENAI_MODEL=gpt-4o-mini
+      - EMBEDDING_MODEL_NAME=all-MiniLM-L6-v2
+      - ENVIRONMENT=development
+      - LOG_LEVEL=INFO
+      - CORS_ORIGINS=http://localhost:5173,http://localhost:3000
+    volumes:
+      - ./backend/app:/app/app  # Hot reload in development
+      - cogent_faiss_data:/app/data/faiss  # FAISS index persistence
+      - cogent_uploads:/app/data/uploads  # Uploaded documents
+    depends_on:
+      db:
+        condition: service_healthy
+    command: uvicorn app.main:app --host 0.0.0.0 --port 8000 --reload
+
+  # ============================================
+  # React Frontend (Vite + Nginx)
+  # ============================================
+  frontend:
+    build:
+      context: ./frontend
+      dockerfile: Dockerfile
+    container_name: cogent_frontend
+    restart: unless-stopped
+    ports:
+      - "5173:5173"
+    depends_on:
+      - backend
+
+volumes:
+  cogent_pgdata:
+    driver: local
+  cogent_faiss_data:
+    driver: local
+  cogent_uploads:
+    driver: local
