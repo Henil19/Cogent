@@ -1,0 +1,102 @@
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+.Python
+build/
+develop-eggs/
+dist/
+downloads/
+eggs/
+.eggs/
+lib/
+lib64/
+parts/
+sdist/
+var/
+wheels/
+share/python-wheels/
+*.egg-info/
+.installed.cfg
+*.egg
+MANIFEST
+
+# Virtual Environments
+.venv/
+venv/
+ENV/
+env/
+
+# Environment Variables & Secrets (CRITICAL)
+.env
+.env.local
+.env.*.local
+*.env
+
+# Testing & Coverage
+.pytest_cache/
+.coverage
+htmlcov/
+.tox/
+.nox/
+
+# Database, Uploads & Local State
+*.db
+*.sqlite3
+data/uploads/*
+!data/uploads/.gitkeep
+data/faiss/*
+!data/faiss/.gitkeep
+data/test_uploads/
+
+# Node & Frontend
+node_modules/
+frontend/node_modules/
+frontend/dist/
+frontend/dist-ssr/
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+.pnpm-debug.log*
+
+# IDE & OS
+.DS_Store
+Thumbs.db
+.idea/
+.vscode/*
+!.vscode/extensions.json
+!.vscode/settings.json
+
+# Scratch & Temporary Testing
+scratch/
+backend/scratch/
+backend/data/uploads/*
+!backend/data/uploads/.gitkeep
+
+# Benchmark outputs (large JSON + markdown reports)
+backend/*_benchmark_results.json
+backend/*_benchmark_report.md
+backend/*_benchmark*.json
+backend/*_validation.json
+backend/*_report.md
+backend/layer10_*.json
+backend/scratch_last_resp.json
+
+# Root-level benchmark & test runner scripts (not app code)
+backend/run_layer*.py
+backend/run_full*.py
+backend/run_normal*.py
+backend/run_papers*.py
+backend/run_ambiguous*.py
+backend/run_unambiguous*.py
+backend/audit_*.py
+backend/test_custom*.py
+backend/test_generator*.py
+backend/test_multi_turn*.py
+backend/conftest.py
+conftest.py
+
+# SQLite databases
+backend/cogent.db
+backend/cogent_app.db
