@@ -1,0 +1,16 @@
+{
+  "benchmark_version": "benchmark_v1",
+  "total_queries": 100,
+  "category_distribution": {
+    "factual": 20,
+    "multi_hop": 20,
+    "comparative": 20,
+    "conflicting": 15,
+    "insufficient_evidence": 15,
+    "ambiguous": 10
+  },
+  "total_local_documents": 95,
+  "total_web_documents": 35,
+  "total_chunks": 130,
+  "gold_references_count": 100
+}

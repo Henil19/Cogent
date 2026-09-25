@@ -1,0 +1,13 @@
+\begin{tabular}{lrrrrr}
+\toprule
+Configuration & Grounding Score & Factual F1 & Citation Precision & ECE & Latency (ms) \\
+\midrule
+Full Cogent (Reference) & 0.163000 & 0.357800 & 0.982000 & 0.298800 & 37.960000 \\
+Without Evidence Intelligence (-L5) & 0.073200 & 0.122400 & 0.982000 & 0.530600 & 14.100000 \\
+Without Transparent DAG Reasoning (-L6) & 0.058700 & 0.075700 & 0.982000 & 0.574600 & 15.900000 \\
+Without Epistemic Trust Calibration (-L7) & 0.163100 & 0.363700 & 0.982000 & 0.136300 & 34.830000 \\
+Without Attribution & Explanation (-L8) & 0.058700 & 0.073400 & NaN & 0.583200 & 19.170000 \\
+Dense Retrieval Only (FAISS) & 0.137300 & 0.268100 & 0.982000 & 0.384100 & 33.670000 \\
+Sparse Retrieval Only (BM25) & 0.184000 & 0.350800 & 0.977000 & 0.326600 & 37.080000 \\
+\bottomrule
+\end{tabular}
