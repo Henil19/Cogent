@@ -142,7 +142,7 @@ export const ResponseViewer: React.FC<ResponseViewerProps> = ({
 
   const cleanedText = cleanMainContent(response.rendered_content);
   const citations = response.citations || [];
-  const trustIndex = response.epistemic_bounds?.epistemic_trust_index ?? 0.88;
+  const trustIndex = response.epistemic_bounds?.epistemic_trust_index;
   const trustPercent = Math.round(trustIndex * 100);
 
   // Parse sections cleanly into structured headings and bullet items
@@ -326,7 +326,7 @@ export const ResponseViewer: React.FC<ResponseViewerProps> = ({
           <div className="flex flex-wrap items-center gap-2">
             <span className="inline-flex items-center px-2.5 py-1 rounded-full text-xs font-semibold bg-emerald-500/10 text-emerald-300 border border-emerald-500/30">
               <ShieldCheck className="w-3.5 h-3.5 mr-1 text-emerald-400" />
-              {trustPercent}% Confidence Calibrated
+              {trustIndex !== undefined ? `${Math.round(trustIndex * 100)}% Trust Index` : "Trust Assessment Available"}
             </span>
             {citations.length > 0 && (
               <span className="px-2.5 py-1 rounded-full bg-slate-900 text-xs font-medium text-slate-300 border border-slate-800">
