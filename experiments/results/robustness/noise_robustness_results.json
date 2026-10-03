@@ -1,0 +1,92 @@
+{
+  "naive_rag": [
+    {
+      "noise_pct": 0,
+      "factual_f1": 0.0938,
+      "citation_precision": 0.9667,
+      "ece": 0.6262,
+      "distractor_infiltration_rate": 0.0
+    },
+    {
+      "noise_pct": 10,
+      "factual_f1": 0.0832,
+      "citation_precision": 0.9667,
+      "ece": 0.6368,
+      "distractor_infiltration_rate": 0.5417
+    },
+    {
+      "noise_pct": 25,
+      "factual_f1": 0.0874,
+      "citation_precision": 0.95,
+      "ece": 0.6326,
+      "distractor_infiltration_rate": 0.8333
+    },
+    {
+      "noise_pct": 50,
+      "factual_f1": 0.0903,
+      "citation_precision": 0.9583,
+      "ece": 0.6297,
+      "distractor_infiltration_rate": 0.8333
+    }
+  ],
+  "reranked_rag": [
+    {
+      "noise_pct": 0,
+      "factual_f1": 0.2483,
+      "citation_precision": 0.9583,
+      "ece": 0.5717,
+      "distractor_infiltration_rate": 0.0
+    },
+    {
+      "noise_pct": 10,
+      "factual_f1": 0.2142,
+      "citation_precision": 0.9417,
+      "ece": 0.6058,
+      "distractor_infiltration_rate": 0.625
+    },
+    {
+      "noise_pct": 25,
+      "factual_f1": 0.1587,
+      "citation_precision": 0.9417,
+      "ece": 0.6613,
+      "distractor_infiltration_rate": 0.75
+    },
+    {
+      "noise_pct": 50,
+      "factual_f1": 0.1589,
+      "citation_precision": 0.9333,
+      "ece": 0.6611,
+      "distractor_infiltration_rate": 0.75
+    }
+  ],
+  "cogent": [
+    {
+      "noise_pct": 0,
+      "factual_f1": 0.3641,
+      "citation_precision": 0.9333,
+      "ece": 0.2933,
+      "distractor_infiltration_rate": 0.0
+    },
+    {
+      "noise_pct": 10,
+      "factual_f1": 0.3591,
+      "citation_precision": 0.9333,
+      "ece": 0.3051,
+      "distractor_infiltration_rate": 0.375
+    },
+    {
+      "noise_pct": 25,
+      "factual_f1": 0.3513,
+      "citation_precision": 0.9333,
+      "ece": 0.3211,
+      "distractor_infiltration_rate": 0.5417
+    },
+    {
+      "noise_pct": 50,
+      "factual_f1": 0.359,
+      "citation_precision": 0.9333,
+      "ece": 0.3105,
+      "distractor_infiltration_rate": 0.625
+    }
+  ]
+}

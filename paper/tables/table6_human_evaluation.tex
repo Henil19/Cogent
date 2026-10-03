@@ -1,0 +1,15 @@
+\begin{table*}[!t]
+\centering
+\caption{Double-Blind Human Evaluation across Six Evaluated Dimensions (3 Annotators, 20 Stratified Queries, Fleiss' $\kappa = 0.3352$)}
+\label{tab:human_eval}
+\begin{tabular}{lrrrrrrr}
+\toprule
+System & Correctness & Evidence Support & Faithfulness & Completeness & Conflict Handling & Overall Usefulness & Mean Composite \\
+\midrule
+LLM-Only & 1.95 & 1.75 & 1.17 & 1.95 & 1.17 & 1.95 & 1.66 \\
+Naive RAG & 3.03 & 2.83 & 2.03 & 3.03 & 2.03 & 3.03 & 2.66 \\
+Reranked RAG & 3.98 & 3.82 & 2.98 & 3.98 & 2.98 & 3.98 & 3.62 \\
+\textbf{Cogent (Proposed)} & \textbf{4.75} & \textbf{4.52} & \textbf{4.75} & \textbf{4.75} & \textbf{3.75} & \textbf{4.75} & \textbf{4.55} \\
+\bottomrule
+\end{tabular}
+\end{table*}
