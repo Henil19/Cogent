@@ -1,6 +1,6 @@
-# Table 5: Distractor & Noise Robustness Analysis
+# Table 5: Orthogonal-Domain Distractor Robustness Analysis
 
-Evaluates system resilience under increasing distractor noise (0%, 10%, 25%, 50% irrelevant passages injected into corpus).
+Evaluates system resilience under orthogonal-domain distractor contamination (0%, 10%, 25%, 50% irrelevant passages injected into corpus). Demonstrates performance maintenance despite substantial distractor retrieval infiltration.
 
 | System | Noise Level | Factual F1 | Citation Precision | ECE $\downarrow$ | Distractor Infiltration Rate | F1 Degradation (vs. Clean) |
 |:---|:---:|:---:|:---:|:---:|:---:|:---:|

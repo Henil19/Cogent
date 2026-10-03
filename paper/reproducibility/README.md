@@ -9,7 +9,8 @@ This package contains all artifacts, configurations, scripts, and instructions n
 ```
 paper/
 ├── manuscript/
-│   ├── main.md                 # Full academic research paper draft
+│   ├── main.tex                # Primary IEEEtran LaTeX research paper
+│   ├── main.md                 # Markdown paper mirror
 │   └── references.bib          # BibTeX citation records
 ├── figures/                    # High-resolution publication figures (300 DPI)
 │   ├── fig1_overall_performance.png
@@ -17,18 +18,25 @@ paper/
 │   ├── fig3_calibration_reliability.png
 │   ├── fig4_latency_quality_tradeoff.png
 │   ├── fig5_layer_failure_attribution.png
-│   └── fig6_ablation_effects.png
+│   ├── fig6_ablation_effects.png
+│   ├── fig7_noise_robustness.png
+│   └── fig_prisma_flow.png
 ├── tables/                     # Formatted Markdown, CSV, and LaTeX tables
 │   ├── table1_overall_comparison.md / .csv
 │   ├── table2_hypothesis_testing.md / .csv
 │   ├── table3_ablation_matrix.md / .csv / .tex
-│   └── table4_cost_latency_tradeoff.md
+│   ├── table4_cost_latency_tradeoff.md
+│   ├── table5_noise_robustness.md / .csv / .tex
+│   └── table6_human_evaluation.md / .tex
 ├── ablations/                  # Ablation execution results & statistics
 │   └── ablation_summary.json
 ├── configs/                    # Frozen environmental & protocol configurations
 │   └── experiment_config.json
 ├── benchmark/                  # Benchmark manifest & queries
 │   └── benchmark_manifest.json
+├── slr/                        # Systematic literature review artifacts
+│   ├── prisma_results.json
+│   └── taxonomy_matrix.md
 └── reproducibility/
     ├── README.md               # This replication guide
     └── reproduce_all.py        # One-click end-to-end replication runner

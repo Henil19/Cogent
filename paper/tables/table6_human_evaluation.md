@@ -1,8 +1,8 @@
 # Table 6: Double-Blind Human Evaluation across Six Evaluated Dimensions
 
-**Protocol**: Double-blind evaluation across 20 stratified benchmark queries evaluated by 3 independent annotators ($N=240$ total ratings).  
+**Protocol**: Double-blind evaluation across 20 stratified benchmark queries independently evaluated by 3 annotators across four blinded systems, yielding 240 system-query evaluations and 1,440 dimension-level Likert judgments.  
 **Scale**: 1–5 Likert scale (1 = Erroneous / Unsubstantiated, 5 = Exemplary / Grounded).  
-**Inter-Annotator Agreement**: Fleiss' Kappa $\kappa = 0.3352$ (*Moderate Agreement*).
+**Inter-Annotator Agreement**: Fleiss' Kappa $\kappa = 0.3352$ (fair-to-moderate agreement, typical of nuanced subjective LLM evaluation).
 
 | System | Factual Correctness | Evidence Support | Explanation Faithfulness | Answer Completeness | Conflict Handling | Overall Usefulness | Mean Composite Rating |
 |:---|:---:|:---:|:---:|:---:|:---:|:---:|:---:|
