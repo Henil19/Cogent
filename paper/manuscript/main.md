@@ -64,37 +64,52 @@ Cogent structures research inquiry across ten modular layers:
 ```
 
 ### Layer 1: User Interaction & Ambiguity Resolution Gate (CLAMBER)
-Evaluates incoming queries for underspecification. If the ambiguity threshold triggers, execution halts immediately with a clarification contract, preventing premature hallucinated execution paths.
+Evaluates incoming queries for underspecification, query intent, and named entities. If the ambiguity threshold triggers, execution halts immediately with a structured clarification contract, preventing premature hallucinated execution paths.
 
-### Layer 2: Strategic Planning & Dynamic Sub-Query Generation
-Deconstructs multi-faceted scientific questions into directed sub-queries with explicit target sources (Local PDFs vs. Live Web) and dependency orderings.
+### Layer 2: Query Understanding & Strategic Planning
+Deconstructs multi-faceted scientific questions into directed sub-queries with explicit target sources (Local Corpus vs. Live Web) and dependency orderings, yielding an acyclic execution plan.
 
 ### Layer 3: Knowledge Acquisition & Pre-Retrieval Grounding
-Acquires, cleans, and chunks multi-modal documents, attaching cryptographic SHA-256 hashes and fine-grained TROVE provenance coordinates.
+Acquires, cleans, and chunks multi-modal documents (PDF, Markdown, HTML), attaching cryptographic SHA-256 hashes and fine-grained provenance coordinates (page numbers, section headers, character spans). Document records and chunk metadata are persisted in relational storage (PostgreSQL with SQLite fallback).
 
 ### Layer 4: Hybrid Knowledge Retrieval
-Executes Dense Bi-Encoder Retrieval (FAISS FlatIP) and Sparse Lexical Retrieval (BM25) in parallel, fusing candidate pools via Reciprocal Rank Fusion (RRF) [Cormack et al., 2009]:
-$$\text{RRF\_Score}(d) = \sum_{m \in \{dense, sparse\}} \frac{1}{60 + \text{rank}_m(d)}$$
+Constructs an **ephemeral in-memory hybrid retrieval index** over the acquired corpus batch dynamically for each query. This design guarantees corpus freshness and eliminates cross-session index contamination:
+- **Dense Vector Retrieval**: Uses `SentenceTransformer("all-MiniLM-L6-v2")` to compute 384-dimensional unit $L_2$-normalized dense embeddings, queried using FAISS `IndexFlatIP` with cosine similarity.
+- **Sparse Lexical Retrieval**: Uses Okapi BM25 ($k_1=1.5, b=0.75$) with sub-linear term frequency weighting.
+- **Reciprocal Rank Fusion**: Merges dense and sparse candidate pools via Reciprocal Rank Fusion (RRF) with constant $k=60$:
+$$\text{RRF}(d) = \sum_{m \in \{\text{dense}, \text{sparse}\}} \frac{1}{60 + \text{rank}_m(d)}$$
 
 ### Layer 5: Evidence Intelligence & Conflict Resolution
-Performs multi-stage cross-encoder reranking, proposition atomization, 4-tier deduplication, and contradiction graph construction ($G_{conflict} = (V, E_{conflict})$). Enforces **Zero Winner Forcing**: conflicting findings are tagged and preserved rather than filtered.
+Refines the fused candidate chunks through a multi-stage filtering and conflict analysis pipeline:
+- **Cross-Encoder Reranking**: Uses `cross-encoder/ms-marco-MiniLM-L-6-v2` with a sub-query-aware dual scoring blend:
+$$s(c) = 0.70 \cdot \sigma(s_{\text{cross}}(c, q_{\text{sub}})) + 0.30 \cdot \sigma(s_{\text{cross}}(c, q_{\text{parent}}))$$
+Candidates falling below the survival threshold ($s(c) < 0.20$) are pruned.
+- **Atomic Claim Extraction & Deduplication**: Extracts fine-grained factual propositions and applies four-tier deduplication.
+- **Conflict Graph Construction**: Identifies contradictions via Natural Language Inference (NLI), building an undirected contradiction graph $G_{\text{conflict}} = (V, E_{\text{conflict}})$. Enforces **Zero Winner Forcing**: conflicting literature findings are preserved and dialectically tagged rather than suppressed.
 
 ### Layer 6: Transparent Reasoning & Synthesis
-Synthesizes verified evidence into an Entailment DAG. For multi-hop queries, intermediate conclusions are derived via explicit deductive nodes ($P_1 + P_2 \Rightarrow IC$), verifying topological acyclicity and premise grounding.
+Synthesizes verified evidence into an Entailment DAG $\mathcal{G}_{\text{reason}} = (V_r, E_r)$. Multi-hop deductions are explicitly represented as intermediate lemmas ($P_1 + P_2 \Rightarrow IC$). Reasoning is orchestrated via an extensible `LLMClient` supporting Google Gemini (default `gemini-2.0-flash`), Groq, and OpenAI-compatible endpoints, with a deterministic rule-based fallback when offline.
 
 ### Layer 7: Trust Intelligence & Epistemic Calibration
-Computes the multi-dimensional Global Trust Index (GTI):
-$$\text{GTI} = \min(\text{WeakestLink}, \text{SourceCredibility}) \times (1 - \text{EpistemicUncertainty})$$
-Separates epistemic deficit (missing knowledge) from aleatoric variance (contradiction), bounding Expected Calibration Error.
+A **strictly rule-based statistical pipeline with zero LLM dependency**. Executes a 6-step calibration:
+1. Source Credibility Evaluation (domain provenance and academic indexing)
+2. Evidence Reliability Analysis (cross-corroboration)
+3. Reasoning Trust Evaluation (structural validity of $\mathcal{G}_{\text{reason}}$)
+4. Uncertainty Decomposition (disentangling epistemic deficit $U_{\text{epi}}$ from aleatoric variance $U_{\text{ale}}$)
+5. Global Trust Index (GTI) Calibration:
+$$\text{GTI} = \min(S_{\text{weakest}}, S_{\text{cred}}) \times (1 - U_{\text{epi}})$$
+6. Hallucination Risk Detection (token support coverage and ungrounded leap flagging)
 
 ### Layer 8: Dynamic Explainability & Minimal Cut-Set Attribution
-Maps final claims back to verified evidence coordinates using minimal cut-sets on the reasoning DAG, ensuring that removing a premise directly alters the attribution package.
+A **strictly rule-based explainability engine with zero LLM dependency**. Computes minimal cut-set attribution over the Entailment DAG:
+$$\mathcal{A}(y) = \arg\min_{C \subseteq S} \{|C| : \mathcal{G} \setminus C \not\vdash y\}$$
+Attaches cryptographic chunk coordinates, generates dialectical dispute summaries for conflicting literature, and adapts structural explanations across four target audiences (Executive, Researcher, Layperson, Domain Expert).
 
 ### Layer 9: Response Generation & Multi-Audience Presentation
-Renders structured reports tailored to the target audience (Executive, Researcher, Layperson). Enforces **Zero Epistemic Mutation**: generated prose cannot introduce claims ungrounded in the verified evidence set.
+Renders structured reports tailored to the requested audience fidelity. Generates a calibrated two-part response (Part 1: Executive synthesis; Part 2: Evidence bullets with bound numeric citation markers `[1]`, `[2]`). Supports LLM narrative synthesis with a robust rule-based fallback when offline, and verifies **Zero Epistemic Mutation** to guarantee that no ungrounded claims reach the user.
 
 ### Layer 10: Analytics, Telemetry & Continuous Learning
-Operates in strict post-hoc asynchronous isolation, logging microsecond latency, token expenditures, and empirical grounding scores without mutating the epistemic output.
+Operates in strict post-hoc asynchronous isolation, persisting microsecond layer timings, token expenditures, calibration bins, and failure taxonomies to relational storage without adding blocking overhead to user queries.
 
 ---
 
