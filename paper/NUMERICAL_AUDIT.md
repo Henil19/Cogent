@@ -250,7 +250,7 @@ Evaluated across the 100 benchmark queries against the Full Cogent reference:
 
 ## 11. Double-Blind Human Evaluation (Table 6)
 
-* **Protocol**: Double-blind manual grading across 20 stratified benchmark queries evaluated by 3 independent annotators across 4 blinded systems (yielding 240 system-query evaluations and 1,440 dimension-level Likert judgments).
+* **Protocol**: Double-blind manual grading across 20 benchmark queries (10 comparative, 10 ambiguous) evaluated by 3 independent annotators across 4 blinded systems (yielding 240 system-query evaluations and 1,440 dimension-level Likert judgments).
 * **Systems Masked**: Blinded and randomized system keys (`SYS_274`, `SYS_902`, `SYS_581`, `SYS_103`).
 * **Scale**: 1–5 Likert scale (1 = Erroneous / Unsubstantiated, 5 = Exemplary / Grounded).
 * **Inter-Annotator Agreement**: Fleiss' Kappa $\kappa = 0.3352$ (*fair-to-moderate agreement*).
@@ -284,7 +284,7 @@ Evaluated across the 100 benchmark queries against the Full Cogent reference:
 
 * **Lexical Token $F_1$ vs. Key-Fact Completeness**:
   - Token $F_1$: Cogent **$0.3578$** vs. Reranked RAG **$0.2187$** (+63.6% relative gain)
-  - Key-Fact Completeness: Cogent **$77.0\%$** vs. Reranked RAG **$44.3\%$**
+  - Key-Fact Completeness: Cogent **$77.0\%$** ($\theta=0.50$) / **$54.5\%$** (strict $\theta=1.00$) vs. Reranked RAG **$44.3\%$** / **$33.9\%$**
   - Human Factual Correctness: Cogent **$4.75 / 5.0$** vs. Reranked RAG **$3.98 / 5.0$**
   - Citation Precision: Cogent **$98.2\%$** vs. Reranked RAG **$96.4\%$**
   - Multi-Hop $F_1$: Cogent **$0.4887$** vs. Reranked RAG **$0.2842$** (+72.0% relative gain)

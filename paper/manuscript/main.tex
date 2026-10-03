@@ -141,7 +141,7 @@ Layer 3 ingests raw documents (PDF, Markdown, HTML), chunks text using semantic 
 \begin{equation}
 \text{Prov}(c) = \langle \text{DocID}, \text{URI}, \text{SHA256}, \text{Page}, \text{Section}, \text{CharSpan} \rangle
 \end{equation}
-This cryptographic coordinate system guarantees that downstream citations are physically verifiable against source bytes.
+This cryptographic coordinate system enables downstream citations to be physically verifiable against source bytes.
 
 \subsection{Layer 4: Hybrid Knowledge Retrieval}
 Layer 4 implements a per-query ephemeral retrieval architecture. For each query execution, an in-memory hybrid index is constructed over the acquired corpus batch:
@@ -330,7 +330,7 @@ Cogent preserves conflicting evidence through an explicit conflict graph and dia
 
 \begin{table*}[!t]
 \centering
-\caption{Double-Blind Human Evaluation Across Six Dimensions ($N_{\text{queries}}=20$, $N_{\text{systems}}=4$, $N_{\text{raters}}=3$; 240 system-query evaluations; 1,440 dimension-level Likert judgments; Fleiss' $\kappa = 0.3352$, Moderate Agreement)}
+\caption{Double-Blind Human Evaluation Across Six Dimensions ($N_{\text{queries}}=20$: 10 Comparative, 10 Ambiguous; $N_{\text{systems}}=4$, $N_{\text{raters}}=3$; 240 system-query evaluations; 1,440 dimension-level Likert judgments; Fleiss' $\kappa = 0.3352$, Fair-to-Moderate Agreement)}
 \label{tab:human}
 \begin{tabular}{lrrrrrrc}
 \toprule
@@ -346,7 +346,7 @@ Reranked RAG & 3.98 & 3.82 & 2.98 & 3.98 & 2.98 & 3.98 & 3.62 \\
 {\raggedright \footnotesize Scale: 1--5 Likert (1 = Erroneous / Unsubstantiated, 5 = Exemplary / Grounded). Systems blinded and randomized during annotation to prevent confirmation bias.\par}
 \end{table*}
 
-Automatic metrics alone cannot capture practical utility for knowledge work. We therefore conducted a double-blind human evaluation in which 20 stratified benchmark queries were independently assessed across four blinded systems by three annotators on a 1--5 Likert scale across six dimensions, yielding \textbf{240 system-query evaluations} and \textbf{1,440 dimension-level Likert judgments}. Table~\ref{tab:human} reports mean dimension scores. Inter-annotator agreement yielded Fleiss' $\kappa = 0.3352$, indicating moderate agreement and reflecting genuine subjectivity in assessing explanation faithfulness and conflict handling. The human evaluation provides independent evidence consistent with the automatic evaluation results; it does not supersede them. Cogent achieves a mean composite rating of \textbf{4.55/5.0} versus 3.62 for Reranked RAG ($+25.7\%$ relative). Gains are particularly pronounced on \textit{Explanation Faithfulness} ($4.75$ vs. $2.98$) and \textit{Conflict Handling} ($3.75$ vs. $2.98$), dimensions directly governed by the DAG Reasoning ($L_6$) and Dialectical Explanation ($L_8$) layers. Note that the 20-query human evaluation sample is deliberately small to control annotation cost; findings should be interpreted as corroborating rather than independently conclusive.
+Automatic metrics alone cannot capture practical utility for knowledge work. We therefore conducted a double-blind human evaluation in which 20 benchmark queries (comprising 10 comparative trade-off and 10 ambiguous inquiries) were independently assessed across four blinded systems by three annotators on a 1--5 Likert scale across six dimensions, yielding \textbf{240 system-query evaluations} and \textbf{1,440 dimension-level Likert judgments}. Table~\ref{tab:human} reports mean dimension scores. Inter-annotator agreement yielded Fleiss' $\kappa = 0.3352$, indicating fair-to-moderate agreement and reflecting genuine subjectivity in assessing explanation faithfulness and conflict handling. The human evaluation provides independent evidence consistent with the automatic evaluation results; it does not supersede them. Cogent achieves a mean composite rating of \textbf{4.55/5.0} versus 3.62 for Reranked RAG ($+25.7\%$ relative). Gains are particularly pronounced on \textit{Explanation Faithfulness} ($4.75$ vs. $2.98$) and \textit{Conflict Handling} ($3.75$ vs. $2.98$), dimensions directly governed by the DAG Reasoning ($L_6$) and Dialectical Explanation ($L_8$) layers. Note that the 20-query human evaluation sample focuses on comparative and ambiguous challenges to control annotation cost, and while system keys were blinded (\texttt{SYS\_911}, \texttt{SYS\_274}), Cogent's structured multi-section format presents a distinct structural style; findings should therefore be interpreted as corroborating rather than independently conclusive.
 
 \subsection{Metric Sensitivity and Factual Completeness}
 \label{sec:metric_sensitivity}
@@ -370,7 +370,7 @@ Multi-Hop $F_1$ & 0.4887 & 0.2842 \\
 \end{tabular}
 \end{table}
 
-These metrics are complementary and should not be interpreted as interchangeable estimates of a single underlying quantity. Token $F_1$ measures surface lexical alignment against a specific reference wording, whereas key-fact completeness ($77.0\%$ vs. $44.3\%$) evaluates whether the required empirical propositions are captured, and human evaluation ($4.75/5.0$) evaluates semantic soundness and decision utility.
+These metrics are complementary and should not be interpreted as interchangeable estimates of a single underlying quantity. Token $F_1$ measures surface lexical alignment against a specific reference wording, whereas key-fact completeness evaluates content keyword coverage (77.0\% at keyword threshold $\theta=0.50$ and 54.5\% at strict $\theta=1.00$ vs. 44.3\% and 33.9\% for Reranked RAG), and human evaluation ($4.75/5.0$) evaluates semantic soundness and decision utility.
 
 A stratified diagnostic of the 100-query benchmark reveals that lower token-overlap $F_1$ is heavily concentrated in boundary query categories. On the 75 substantive answerable queries (Factual, Multi-Hop, Comparative, Conflicting), Cogent achieves an average token $F_1$ of \textbf{0.4442} (reaching $0.5714$ on Conflicting and $0.4887$ on Multi-Hop). Conversely, on the 25 boundary queries (Insufficient Evidence and Ambiguous), token $F_1$ drops to $0.0986$. On the ambiguous subset (10 queries), Layer 1 detects missing information and halts with a structured clarification request. While this is the architecturally desirable behavior---corroborated by a 4.9/5.0 human correctness rating on these queries---the lexical overlap against the benchmark's gold explanation string is near zero ($F_1 = 0.0244$). The audit indicates that lexical paraphrase, response-length asymmetry, and boundary-query behavior are substantial contributors to the lower token-overlap $F_1$.
 
@@ -493,7 +493,7 @@ Several scientific boundaries constrain the scope of these findings:
     \item \textbf{Single-Turn Benchmark}: \texttt{benchmark\_v1} evaluates single-turn inquiries. The Zero Epistemic Mutation and Zero Winner Forcing contracts are defined at the per-query level; extending them to multi-turn conversational state is an open direction.
     \item \textbf{Per-Query Ephemeral Indexing}: Cogent builds an ephemeral in-memory FAISS index per query, which is well-suited for dynamic session-level corpora but requires persistent sharded index infrastructure for corpora exceeding $10^7$ passages.
     \item \textbf{Model Backbone Generalization}: All benchmark runs used Gemini-2.5-Flash ($\text{temperature}=0.0, \text{seed}=42$). Variance across open-weight model families (e.g., Llama-3.3-70B) remains uncharacterized.
-    \item \textbf{Human Evaluation Sample Size}: The double-blind human evaluation covers 20 queries and 3 annotators. Results are corroborative; a larger annotation study would be required to establish population-level generalization.
+    \item \textbf{Human Evaluation Scope}: The double-blind human evaluation evaluates 20 queries (10 comparative, 10 ambiguous) across 3 annotators. While systems were blinded with random keys, structural formatting differences between monolithic and multi-section responses could be discernible to attentive raters. Results are corroborative; a larger annotation study across all categories would be required to establish population-level generalization.
     \item \textbf{Noise Experiment Scope}: The distractor robustness experiment targets orthogonal-domain passages specifically. Adversarial in-domain distractors or semantically similar but factually incorrect passages represent a distinct and harder threat model not evaluated here.
 \end{enumerate}
 

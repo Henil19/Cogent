@@ -79,7 +79,7 @@ Deconstructs multi-faceted scientific questions into directed sub-queries with e
 Acquires, cleans, and chunks multi-modal documents (PDF, Markdown, HTML), attaching cryptographic SHA-256 hashes and fine-grained provenance coordinates (page numbers, section headers, character spans). Document records and chunk metadata are persisted in relational storage (PostgreSQL with SQLite fallback).
 
 ### Layer 4: Hybrid Knowledge Retrieval
-Constructs an **ephemeral in-memory hybrid retrieval index** over the acquired corpus batch dynamically for each query. This design guarantees corpus freshness and eliminates cross-session index contamination:
+Constructs an **ephemeral in-memory hybrid retrieval index** over the acquired corpus batch dynamically for each query. This design maintains corpus freshness and avoids cross-session index contamination:
 - **Dense Vector Retrieval**: Uses `SentenceTransformer("all-MiniLM-L6-v2")` to compute 384-dimensional unit $L_2$-normalized dense embeddings, queried using FAISS `IndexFlatIP` with cosine similarity.
 - **Sparse Lexical Retrieval**: Uses Okapi BM25 ($k_1=1.5, b=0.75$) with sub-linear term frequency weighting.
 - **Reciprocal Rank Fusion**: Merges dense and sparse candidate pools via Reciprocal Rank Fusion (RRF) with constant $k=60$:
@@ -225,7 +225,7 @@ Evaluates system resilience under orthogonal-domain distractor contamination (0%
 *Note: Distractor passages were sourced from orthogonal domains (marine biology, astronomy, classical literature). Cogent degrades by only -1.4% at 50% noise density versus -36.0% for Reranked RAG.*
 
 ### Table 6: Double-Blind Human Evaluation across Six Evaluated Dimensions
-**Protocol**: Double-blind evaluation across 20 stratified benchmark queries independently evaluated by 3 annotators across four blinded systems, yielding 240 system-query evaluations and 1,440 dimension-level Likert judgments.  
+**Protocol**: Double-blind evaluation across 20 benchmark queries (10 comparative, 10 ambiguous) independently evaluated by 3 annotators across four blinded systems, yielding 240 system-query evaluations and 1,440 dimension-level Likert judgments.  
 **Scale**: 1–5 Likert scale (1 = Erroneous / Unsubstantiated, 5 = Exemplary / Grounded).  
 **Inter-Annotator Agreement**: Fleiss' Kappa $\kappa = 0.3352$ (fair-to-moderate agreement, typical of nuanced subjective LLM evaluation).
 
@@ -250,7 +250,7 @@ Because Cogent produces structured multi-section responses while the benchmark g
 | **Citation Precision** | **98.2%** | 96.4% |
 | **Multi-Hop $F_1$** | **0.4887** | 0.2842 |
 
-These metrics are complementary and should not be interpreted as interchangeable estimates of a single underlying quantity. Token $F_1$ measures surface lexical alignment against a specific reference wording, whereas key-fact completeness ($77.0\%$ vs. $44.3\%$) evaluates whether the required empirical propositions are captured, and human evaluation ($4.75/5.0$) evaluates semantic soundness and decision utility.
+These metrics are complementary and should not be interpreted as interchangeable estimates of a single underlying quantity. Token $F_1$ measures surface lexical alignment against a specific reference wording, whereas key-fact completeness evaluates content keyword coverage (77.0\% at keyword threshold $\theta=0.50$ and 54.5\% at strict $\theta=1.00$ vs. 44.3\% and 33.9\% for Reranked RAG), and human evaluation ($4.75/5.0$) evaluates semantic soundness and decision utility.
 
 A stratified diagnostic of the 100-query benchmark reveals that lower token-overlap $F_1$ is heavily concentrated in boundary query categories. On the 75 substantive answerable queries (Factual, Multi-Hop, Comparative, Conflicting), Cogent achieves an average token $F_1$ of **0.4442** (reaching $0.5714$ on Conflicting and $0.4887$ on Multi-Hop). Conversely, on the 25 boundary queries (Insufficient Evidence and Ambiguous), token $F_1$ drops to $0.0986$. On the ambiguous subset (10 queries), Layer 1 detects missing information and halts with a structured clarification request. While this is the architecturally desirable behavior—corroborated by a 4.9/5.0 human correctness rating on these queries—the lexical overlap against the benchmark's gold explanation string is near zero ($F_1 = 0.0244$). The audit indicates that lexical paraphrase, response-length asymmetry, and boundary-query behavior are substantial contributors to the lower token-overlap $F_1$.
 
@@ -275,7 +275,7 @@ Several scientific boundaries constrain the scope of these findings:
 1. **Single-Turn Benchmark**: `benchmark_v1` evaluates single-turn inquiries. The Zero Epistemic Mutation and Zero Winner Forcing contracts are defined at the per-query level; extending them to multi-turn conversational state is an open direction.
 2. **Per-Query Ephemeral Indexing**: Cogent builds an ephemeral in-memory FAISS index per query, which is well-suited for dynamic session-level corpora but requires persistent sharded index infrastructure for corpora exceeding $10^7$ passages.
 3. **Model Backbone Generalization**: All benchmark runs used Gemini-2.5-Flash ($\text{temperature}=0.0, \text{seed}=42$). Variance across open-weight model families (e.g., Llama-3.3-70B) remains uncharacterized.
-4. **Human Evaluation Sample Size**: The double-blind human evaluation covers 20 queries and 3 annotators (240 system-query evaluations, 1,440 dimension judgments). Results are corroborative; a larger annotation study would be required to establish population-level generalization.
+4. **Human Evaluation Scope**: The double-blind human evaluation evaluates 20 queries (10 comparative, 10 ambiguous) across 3 annotators. While systems were blinded with random keys, structural formatting differences between monolithic and multi-section responses could be discernible to attentive raters. Results are corroborative; a larger annotation study across all categories would be required to establish population-level generalization.
 5. **Noise Experiment Scope**: The distractor robustness experiment targets orthogonal-domain passages specifically. Adversarial in-domain distractors or semantically similar but factually incorrect passages represent a distinct and harder threat model not evaluated here.
 
 ---
