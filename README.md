@@ -7,16 +7,16 @@ Cogent is an enterprise-grade, calibrated epistemic research and reasoning archi
 ## 🌟 Key Architecture Capabilities
 
 - **10-Layer Epistemic Pipeline**:
-  1. **Layer 1 (Query Understanding)**: Ambiguity detection, scope classification, entity resolution.
-  2. **Layer 2 (Retrieval Planning)**: Dynamic query topological expansion & target routing.
-  3. **Layer 3 (Acquisition)**: Multi-format document parser (PDF, TXT, MD) with cryptographic hashing.
-  4. **Layer 4 (Retrieval)**: Hybrid search combining dense neural vector embeddings (FAISS) with sparse BM25 and Reciprocal Rank Fusion (RRF).
-  5. **Layer 5 (Evidence Verification)**: NLI entailment auditing and verbatim span grounding.
-  6. **Layer 6 (Contradiction & Dialectic)**: Disagreement identification preserving empirical variance.
-  7. **Layer 7 (Multi-Hop Deduction)**: Direct acyclic graph (DAG) reasoning with weakest-link sensitivity.
-  8. **Layer 8 (Epistemic Calibration)**: Multi-dimensional Global Trust Index (GTI) computation.
-  9. **Layer 9 (Multi-Fidelity Packaging)**: Interactive citation badges, BLUF summaries, and progressive drawers.
-  10. **Layer 10 (Evaluation & Quality)**: Continuous attribution calibration and safety feedback.
+  1. **Layer 1 — User Interaction**: Intent classification, ambiguity detection, entity resolution, session management.
+  2. **Layer 2 — Query Understanding & Planning**: Sub-query decomposition, dense phrasings, sparse keywords, source routing.
+  3. **Layer 3 — Knowledge Acquisition**: Multi-format document parser (PDF, TXT, MD) with cryptographic provenance hashing; live web acquisition via Tavily + arXiv.
+  4. **Layer 4 — Hybrid Knowledge Retrieval**: Dense neural embeddings (all-MiniLM-L6-v2, 384-dim, FAISS IndexFlatIP) fused with sparse BM25 via Reciprocal Rank Fusion (RRF, k=60).
+  5. **Layer 5 — Evidence Intelligence**: Cross-encoder reranking (ms-marco-MiniLM-L-6-v2), NLI entailment grounding, deduplication, conflict graph construction, coverage selection.
+  6. **Layer 6 — Transparent Reasoning & Synthesis**: LLM-assisted evidence-to-claim chaining, multi-hop DAG inference, dialectical conflict reconciliation, comparative analysis, epistemic gap evaluation.
+  7. **Layer 7 — Trust Intelligence**: Statistical source credibility, evidence reliability, reasoning-chain trust, uncertainty quantification, confidence calibration, hallucination risk detection. Global Trust Index (GTI) computation. No LLM dependency.
+  8. **Layer 8 — Explainability & Attribution**: Rule-based claim attribution, DAG-to-narrative translation, citation mapping, counterfactual sensitivity analysis, multi-fidelity audience adaptation (executive, researcher, layperson, domain-expert). No LLM dependency.
+  9. **Layer 9 — Response Generation & Presentation**: LLM-synthesized BLUF summaries and evidence narratives; citation badge rendering; trust badge presentation; safety validation; graceful epistemic abstention fallback.
+  10. **Layer 10 — Analytics & Learning**: Continuous attribution calibration, telemetry logging, quality feedback.
 
 ---
 
@@ -25,7 +25,7 @@ Cogent is an enterprise-grade, calibrated epistemic research and reasoning archi
 ### Prerequisites
 - Python 3.11+
 - Node.js 18+
-- PostgreSQL 15+ (with `pgvector`) or Docker
+- PostgreSQL 15+ or Docker (used for relational data: users, sessions, documents, chunks)
 
 ### Running Locally
 
