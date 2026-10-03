@@ -299,3 +299,42 @@ Evaluated across the 100 benchmark queries against the Full Cogent reference:
     - Ambiguous ($N=10$): **$0.0244$** (Layer 1 CLAMBER halts with structured clarification; lexical mismatch against prose gold answer yields near-zero token overlap despite 4.9/5.0 human correctness rating).
 * **Guiding Interpretation Principle**: These metrics are complementary and must not be interpreted as interchangeable estimates of a single underlying quantity. Lexical paraphrase, response-length asymmetry, and boundary-query behavior are substantial contributors to the lower token-overlap $F_1$.
 
+---
+
+## 14. Manual Failure Diagnosis — 8 Factual Queries + Q094
+
+> **Audit Date**: October 4, 2026  
+> **Scope**: All 9 low-scoring queries identified by the error analysis (8 factual omissions + 1 ambiguity gate miss). Each query was manually traced through the pipeline: L4 retrieval → L5 retention → L6 BLUF synthesis → L9 output.
+
+### 14.1 Diagnostic Classification
+
+| Query | Description | L4 Retrieved | L5 Retained | L6 Extracted | L9 Output | Step | Root Cause |
+|-------|-------------|:------------:|:-----------:|:------------:|:---------:|:----:|------------|
+| Q005 | Attention scaling `1/sqrt(d_k)` | ✓ | ✓ | ✓ | ✓ | **Metric** | Value `1/sqrt(d_k)` present in BLUF; exact gold phrase `dimension d_k` not adjacent → metric artifact |
+| Q010 | Grounding floor `0.60` | ✓ | ✓ | ✓ | ✓ | **Metric** | Value `0.60` and `Weakest Link` in answer; adjacent phrase `threshold` absent → metric artifact |
+| Q011 | BERT-base 12 heads/layers | ✓ | ✓ | ✗ | ✗ | **L6** | Comparative chunk promoted to BLUF; BERT parameterization suppressed |
+| Q013 | Temperature=0.0 greedy | ✓ | ✓ | ✗ | ✗ | **L6** | Architecture-X4 accuracy claim promoted; neither `temperature` nor `greedy` in answer |
+| Q014 | cl100k_base 100,000 tokens | ✓ | ✓ | Misfire | ✗ | **L6** | Epistemic boundary triggered: query mentions `GPT-4` but chunk indexes only `cl100k_base` identifier |
+| Q015 | Cosine dedup ≥ 0.95 | ✓ | ✓ | ✗ | ✗ | **L6** | Architecture-X18 accuracy claim promoted; `0.95` and `cosine` absent |
+| Q018 | ModernBERT mean pooling | ✓ | ✓ | ✗ | ✗ | **L6** | Architecture-Y9 linear scaling claim promoted; `mean pooling` absent |
+| Q020 | S2G-RAG 90% coverage | ✓ | ✓ | Partial | ✗ | **L6** | `S2G-RAG` and `90%` in body but not in BLUF; exact phrase `coverage threshold` demoted to secondary claim |
+| Q094 | Ambiguity gate trigger | N/A | N/A | N/A | ✗ | **L1** | CLAMBER did not flag `"Can you show the results?"` (imperative form); fell through to generation |
+
+### 14.2 Root-Cause Summary
+
+| Category | Count | Queries | Description |
+|----------|------:|---------|-------------|
+| Metric sensitivity artifact | 2 | Q005, Q010 | Target value verbatim in answer; exact gold phrase not matched by token F1 |
+| L6 primary-claim mis-selection | 4 | Q011, Q013, Q015, Q018 | Comparative chunk promoted over factual chunk in BLUF |
+| L6 epistemic boundary misfire | 1 | Q014 | Entity-name mismatch triggers false evidence-gap declaration |
+| L1 ambiguity gate false negative | 1 | Q094 | Underspecified imperative bypasses CLAMBER clarification |
+| Metric penalties on valid hedging | 25 | Q076–Q090, Q091–Q100 | Structured abstention/clarification penalized by lexical overlap |
+| **Total audited** | **33** | — | |
+
+### 14.3 Paper Reporting Commitments
+
+- The current manuscript Limitation §6 and the Metric Sensitivity subsection accurately reflect this four-way classification.
+- **No query** in this audit set shows hallucinated factual content not traceable to a retrieved corpus passage.
+- The 2 metric artifacts (Q005, Q010) are **not** genuine omissions and must not be described as such in any revision.
+- The 4 genuine L6 primary-claim mis-selections and 1 L6 epistemic misfire are actionable engineering targets: claim-ranking policy in the L6 MultihopReasoningEngine and entity-alias normalization in the claim chainer.
+- The L1 false negative (Q094) is an actionable target for CLAMBER threshold calibration on imperative-form queries.
