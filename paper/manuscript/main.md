@@ -171,7 +171,7 @@ Operates in strict post-hoc asynchronous isolation, persisting microsecond layer
 
 ### Primary Findings
 1. **Citation Precision ($0.9820$)**: Cogent achieved near-flawless attribution accuracy, statistically outperforming Naive RAG ($p = 0.0027$) and applying an attribution contract to every emitted citation token.
-2. **Factual Correctness F1 ($0.3578$)**: Outperformed both RAG baselines ($0.1122$ and $0.2187$) and raw LLM generation ($0.3038$). In multi-hop queries, Cogent reached F1 of **0.4887** vs. 0.2842 for Reranked RAG (+72.0% relative gain).
+2. **Factual Correctness F1 ($0.3578$)**: Outperformed both RAG baselines ($0.1122$ and $0.2187$) and raw LLM generation ($0.3038$). In multi-hop queries, Cogent reached F1 of **0.4887** vs. 0.2842 for Reranked RAG (+72.0% relative gain). The entailment DAG provides an explicit structure for tracing multi-hop deductions and reduces the opportunity for opaque reasoning chains.
 3. **Epistemic Calibration ($\text{ECE} = 0.2988$)**: Standard RAG architectures suffered severe overconfidence ($\text{ECE} \approx 0.60$) due to uncritical generation on irrelevant chunks. Cogent reduced calibration error by **-50.3%**.
 4. **Sub-Linear In-Process Latency ($37.96$ ms)**: Processing overhead remained approximately 79× below the 3.0-second operational constraint.
 
@@ -237,6 +237,22 @@ Evaluates system resilience under orthogonal-domain distractor contamination (0%
 | **Cogent (Proposed)** | **4.75** | **4.52** | **4.75** | **4.75** | **3.75** | **4.75** | **4.55** |
 
 *Note: All systems were blinded and randomly masked during annotation (`SYS_274`, `SYS_902`, etc.) to prevent confirmation bias.*
+
+### Metric Sensitivity and Factual Completeness
+
+Because Cogent produces structured multi-section responses while the benchmark gold references are concise (averaging 20.7 words), token-level $F_1$ is sensitive to lexical formulation and response length. We therefore report key-fact completeness and blinded human factual correctness alongside token $F_1$.
+
+| Evaluation Dimension | Cogent | Reranked RAG |
+|:---|:---:|:---:|
+| **Factual Correctness Token $F_1$** | **0.3578** | 0.2187 |
+| **Key-Fact Completeness** | **77.0%** | 44.3% |
+| **Human Factual Correctness (1–5)** | **4.75 / 5.0** | 3.98 / 5.0 |
+| **Citation Precision** | **98.2%** | 96.4% |
+| **Multi-Hop $F_1$** | **0.4887** | 0.2842 |
+
+These metrics are complementary and should not be interpreted as interchangeable estimates of a single underlying quantity. Token $F_1$ measures surface lexical alignment against a specific reference wording, whereas key-fact completeness ($77.0\%$ vs. $44.3\%$) evaluates whether the required empirical propositions are captured, and human evaluation ($4.75/5.0$) evaluates semantic soundness and decision utility.
+
+A stratified diagnostic of the 100-query benchmark reveals that lower token-overlap $F_1$ is heavily concentrated in boundary query categories. On the 75 substantive answerable queries (Factual, Multi-Hop, Comparative, Conflicting), Cogent achieves an average token $F_1$ of **0.4442** (reaching $0.5714$ on Conflicting and $0.4887$ on Multi-Hop). Conversely, on the 25 boundary queries (Insufficient Evidence and Ambiguous), token $F_1$ drops to $0.0986$. On the ambiguous subset (10 queries), Layer 1 detects missing information and halts with a structured clarification request. While this is the architecturally desirable behavior—corroborated by a 4.9/5.0 human correctness rating on these queries—the lexical overlap against the benchmark's gold explanation string is near zero ($F_1 = 0.0244$). The audit indicates that lexical paraphrase, response-length asymmetry, and boundary-query behavior are substantial contributors to the lower token-overlap $F_1$.
 
 ---
 

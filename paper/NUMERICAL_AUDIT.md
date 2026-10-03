@@ -250,10 +250,10 @@ Evaluated across the 100 benchmark queries against the Full Cogent reference:
 
 ## 11. Double-Blind Human Evaluation (Table 6)
 
-* **Protocol**: Double-blind manual grading across 20 stratified benchmark queries evaluated by 3 independent annotators ($N=240$ total ratings).
+* **Protocol**: Double-blind manual grading across 20 stratified benchmark queries evaluated by 3 independent annotators across 4 blinded systems (yielding 240 system-query evaluations and 1,440 dimension-level Likert judgments).
 * **Systems Masked**: Blinded and randomized system keys (`SYS_274`, `SYS_902`, `SYS_581`, `SYS_103`).
 * **Scale**: 1–5 Likert scale (1 = Erroneous / Unsubstantiated, 5 = Exemplary / Grounded).
-* **Inter-Annotator Agreement**: Fleiss' Kappa $\kappa = 0.3352$ (*Moderate Agreement*).
+* **Inter-Annotator Agreement**: Fleiss' Kappa $\kappa = 0.3352$ (*fair-to-moderate agreement*).
 * **Dimension Scores (Means)**:
   - **Factual Correctness**: LLM-Only $1.95$, Naive RAG $3.03$, Reranked RAG $3.98$, Cogent **$4.75$**
   - **Evidence Support**: LLM-Only $1.75$, Naive RAG $2.83$, Reranked RAG $3.82$, Cogent **$4.52$**
@@ -277,4 +277,25 @@ Evaluated across the 100 benchmark queries against the Full Cogent reference:
   - Reranked RAG: **$82.00\%$**
   - *Definition*: Citation Coverage = fraction of generated claims that received at least one citation token. This is **not recall** (no explicit ground-truth set of citation-required claims was defined); it measures attribution selectivity, not completeness.
   - *Interpretation & Paper Phrasing*: Cogent's lower raw coverage is deliberate and architectural: baselines spray indiscriminate citation markers across general sentences, whereas Cogent only attributes verifiable empirical claims passing $L_5$ atomic extraction and $L_8$ attribution mapping, yielding a near-perfect Citation Precision of **$98.20\%$**.
+
+---
+
+## 13. Metric Sensitivity & Complementary Evaluation Profile
+
+* **Lexical Token $F_1$ vs. Key-Fact Completeness**:
+  - Token $F_1$: Cogent **$0.3578$** vs. Reranked RAG **$0.2187$** (+63.6% relative gain)
+  - Key-Fact Completeness: Cogent **$77.0\%$** vs. Reranked RAG **$44.3\%$**
+  - Human Factual Correctness: Cogent **$4.75 / 5.0$** vs. Reranked RAG **$3.98 / 5.0$**
+  - Citation Precision: Cogent **$98.2\%$** vs. Reranked RAG **$96.4\%$**
+  - Multi-Hop $F_1$: Cogent **$0.4887$** vs. Reranked RAG **$0.2842$** (+72.0% relative gain)
+* **Category Stratification (Substantive vs. Boundary)**:
+  - Substantive Answerable Queries ($N=75$: Factual, Multi-Hop, Comparative, Conflicting): Cogent Mean Token $F_1 = \mathbf{0.4442}$
+    - Conflicting ($N=15$): **$0.5714$**
+    - Multi-Hop ($N=20$): **$0.4887$**
+    - Comparative ($N=20$): **$0.4226$**
+    - Factual Grounded ($N=20$): **$0.3259$**
+  - Boundary Queries ($N=25$: Insufficient Evidence + Ambiguous): Cogent Mean Token $F_1 = \mathbf{0.0986}$
+    - Insufficient Evidence ($N=15$): **$0.1481$**
+    - Ambiguous ($N=10$): **$0.0244$** (Layer 1 CLAMBER halts with structured clarification; lexical mismatch against prose gold answer yields near-zero token overlap despite 4.9/5.0 human correctness rating).
+* **Guiding Interpretation Principle**: These metrics are complementary and must not be interpreted as interchangeable estimates of a single underlying quantity. Lexical paraphrase, response-length asymmetry, and boundary-query behavior are substantial contributors to the lower token-overlap $F_1$.
 

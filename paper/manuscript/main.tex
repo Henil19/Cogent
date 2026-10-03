@@ -318,7 +318,7 @@ Cogent achieves a Citation Precision of \textbf{0.9820}, significantly outperfor
 Cogent's selective attribution strategy yields a Citation Coverage of \textbf{44.46\%} compared to 73.00\% (Naive RAG) and 82.00\% (Reranked RAG). Here, Citation Coverage measures the fraction of generated claims that received at least one citation token; it is distinct from recall, as no explicit ground-truth set of citation-required claims was defined. The differential reflects a deliberate architectural choice: baseline systems emit citation markers at the sentence level indiscriminately, whereas Cogent propagates citations only to atomic empirical claims that have cleared $L_5$ entailment verification and $L_8$ minimal cut-set mapping. Citation Precision ($P = 0.9820$) is therefore the primary quality signal; Citation Coverage should be read as a measure of attribution selectivity, not of completeness.
 
 \subsection{Multi-Hop Deductive Superiority ($H_2$)}
-On multi-hop deductive queries, Cogent achieves a Factual $F_1$ of \textbf{0.4887} compared to 0.2842 for Reranked RAG (a $+72.0\%$ relative improvement). Standard RAG collapses on multi-hop questions because linear context concatenation does not enforce intermediate lemmas. In contrast, Cogent's Layer 6 constructs an explicit Entailment DAG ($P_1 + P_2 \Rightarrow IC_1 \Rightarrow \text{Conclusion}$), validating each step before synthesis.
+On multi-hop deductive queries, Cogent achieves a Factual $F_1$ of \textbf{0.4887} compared to 0.2842 for Reranked RAG (a $+72.0\%$ relative improvement). Standard RAG collapses on multi-hop questions because linear context concatenation does not enforce intermediate lemmas. In contrast, Cogent's Layer 6 constructs an explicit Entailment DAG ($P_1 + P_2 \Rightarrow IC_1 \Rightarrow \text{Conclusion}$), validating each step before synthesis. The entailment DAG provides an explicit structure for tracing multi-hop deductions and reduces the opportunity for opaque reasoning chains.
 
 \subsection{Epistemic Calibration \& Abstention ($H_4$)}
 As visualized in Fig.~\ref{fig:calibration}, standard RAG baselines suffer severe overconfidence ($\text{ECE} \approx 0.60$), emitting affirmative assertions with high model confidence even when the corpus lacks supporting evidence. Cogent reduces ECE to \textbf{0.2988} ($-50.3\%$ error reduction, $p < 0.001, d = 1.24$). Complementing ECE, Cogent achieves a Brier Score of \textbf{0.1134}, lower than Reranked RAG ($0.3616$) and Naive RAG ($0.3921$), indicating lower probabilistic prediction error on the evaluated benchmark. When confronted with insufficient evidence, Layer 7 depresses the Global Trust Index and triggers Layer 9's Epistemic Abstention Protocol.
@@ -347,6 +347,32 @@ Reranked RAG & 3.98 & 3.82 & 2.98 & 3.98 & 2.98 & 3.98 & 3.62 \\
 \end{table*}
 
 Automatic metrics alone cannot capture practical utility for knowledge work. We therefore conducted a double-blind human evaluation in which 20 stratified benchmark queries were independently assessed across four blinded systems by three annotators on a 1--5 Likert scale across six dimensions, yielding \textbf{240 system-query evaluations} and \textbf{1,440 dimension-level Likert judgments}. Table~\ref{tab:human} reports mean dimension scores. Inter-annotator agreement yielded Fleiss' $\kappa = 0.3352$, indicating moderate agreement and reflecting genuine subjectivity in assessing explanation faithfulness and conflict handling. The human evaluation provides independent evidence consistent with the automatic evaluation results; it does not supersede them. Cogent achieves a mean composite rating of \textbf{4.55/5.0} versus 3.62 for Reranked RAG ($+25.7\%$ relative). Gains are particularly pronounced on \textit{Explanation Faithfulness} ($4.75$ vs. $2.98$) and \textit{Conflict Handling} ($3.75$ vs. $2.98$), dimensions directly governed by the DAG Reasoning ($L_6$) and Dialectical Explanation ($L_8$) layers. Note that the 20-query human evaluation sample is deliberately small to control annotation cost; findings should be interpreted as corroborating rather than independently conclusive.
+
+\subsection{Metric Sensitivity and Factual Completeness}
+\label{sec:metric_sensitivity}
+Because Cogent produces structured multi-section responses while the benchmark gold references are concise (averaging 20.7 words), token-level $F_1$ is sensitive to lexical formulation and response length. We therefore report key-fact completeness and blinded human factual correctness alongside token $F_1$.
+
+As summarized in Table~\ref{tab:multidim}, these evaluation dimensions capture distinct operational signals:
+\begin{table}[!t]
+\centering
+\caption{Multi-Dimensional Evaluation Profile: Token Similarity vs. Factual Grounding}
+\label{tab:multidim}
+\begin{tabular}{lrr}
+\toprule
+Evaluation Dimension & Cogent & Reranked RAG \\
+\midrule
+Factual Correctness Token $F_1$ & 0.3578 & 0.2187 \\
+Key-Fact Completeness & 77.0\% & 44.3\% \\
+Human Factual Correctness (1--5) & 4.75 / 5.0 & 3.98 / 5.0 \\
+Citation Precision & 98.2\% & 96.4\% \\
+Multi-Hop $F_1$ & 0.4887 & 0.2842 \\
+\bottomrule
+\end{tabular}
+\end{table}
+
+These metrics are complementary and should not be interpreted as interchangeable estimates of a single underlying quantity. Token $F_1$ measures surface lexical alignment against a specific reference wording, whereas key-fact completeness ($77.0\%$ vs. $44.3\%$) evaluates whether the required empirical propositions are captured, and human evaluation ($4.75/5.0$) evaluates semantic soundness and decision utility.
+
+A stratified diagnostic of the 100-query benchmark reveals that lower token-overlap $F_1$ is heavily concentrated in boundary query categories. On the 75 substantive answerable queries (Factual, Multi-Hop, Comparative, Conflicting), Cogent achieves an average token $F_1$ of \textbf{0.4442} (reaching $0.5714$ on Conflicting and $0.4887$ on Multi-Hop). Conversely, on the 25 boundary queries (Insufficient Evidence and Ambiguous), token $F_1$ drops to $0.0986$. On the ambiguous subset (10 queries), Layer 1 detects missing information and halts with a structured clarification request. While this is the architecturally desirable behavior---corroborated by a 4.9/5.0 human correctness rating on these queries---the lexical overlap against the benchmark's gold explanation string is near zero ($F_1 = 0.0244$). The audit indicates that lexical paraphrase, response-length asymmetry, and boundary-query behavior are substantial contributors to the lower token-overlap $F_1$.
 
 \section{Controlled Ablation Studies}
 \label{sec:ablations}
@@ -431,7 +457,7 @@ Reranked RAG & 50\% & 0.1589 & 0.9333 & 0.6611 & 75.0\% & $-36.0\%$ \\
 
 To assess robustness under orthogonal-domain corpus contamination, we injected 65 distractor chunks sourced from unrelated domains (marine biology, planetary geology, baroque music, entomology, and similar) in increasing proportions ($0\%, 10\%, 25\%, 50\%$) into a stratified set of 24 benchmark queries (Table~\ref{tab:noise} and Fig.~\ref{fig:noise}). This experiment specifically targets the failure mode where topically irrelevant passages infiltrate the top-$K$ retrieved set; it does not claim to represent arbitrary retrieval noise conditions more broadly.
 
-At 50\% injected distractor density, Reranked RAG suffers an $F_1$ collapse from $0.2483$ to $0.1589$ ($-36.0\%$), with a distractor infiltration rate of $75\%$, confirming that cross-encoder reranking alone is insufficient when the candidate pool is dominated by orthogonal passages. Naive RAG shows low absolute degradation only because its baseline is already near floor. Cogent's $F_1$ remains at $0.3590$ ($-1.4\%$ degradation) despite a $62.5\%$ distractor infiltration rate at this tier. This suggests that downstream evidence verification ($L_5$ entailment filtering and $L_6$ DAG acyclicity enforcement) can limit the impact of irrelevant retrieved passages on the final response, even when those passages are retrieved in quantity. Citation Precision holds at $0.9333$ across all noise tiers.
+At 50\% injected distractor density, Reranked RAG suffers an $F_1$ collapse from $0.2483$ to $0.1589$ ($-36.0\%$), with a distractor infiltration rate of $75\%$, confirming that cross-encoder reranking alone is insufficient when the candidate pool is dominated by orthogonal passages. Naive RAG shows low absolute degradation only because its baseline is already near floor. Cogent's $F_1$ remains at $0.3590$ ($-1.4\%$ degradation) despite a $62.5\%$ distractor infiltration rate at this tier. This suggests that downstream evidence verification ($L_5$ entailment filtering and $L_6$ explicit DAG premise tracing) can limit the impact of irrelevant retrieved passages on the final response, even when those passages are retrieved in quantity. Citation Precision holds at $0.9333$ across all noise tiers.
 
 \section{Latency-Quality Trade-Off Analysis}
 \label{sec:tradeoffs}
