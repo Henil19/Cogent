@@ -1,0 +1,1226 @@
+{
+  "metadata": {
+    "search_date": "2026-10-03",
+    "databases_searched": [
+      "OpenAlex (aggregating IEEE, ACM, ACL, ScienceDirect, Springer, arXiv)",
+      "Crossref"
+    ],
+    "protocol": "PRISMA 2020 Guidelines for Systematic Literature Reviews"
+  },
+  "themes": [
+    {
+      "theme_id": "theme1_calibration",
+      "theme_name": "Epistemic & Confidence Calibration in RAG",
+      "openalex_query": "retrieval augmented generation epistemic calibration uncertainty",
+      "openalex_count": 1592,
+      "crossref_query": "retrieval augmented generation confidence calibration",
+      "crossref_count": 1194590,
+      "theme_total_count": 1196182,
+      "top_candidate_papers": [
+        {
+          "id": "https://openalex.org/W3163993681",
+          "doi": "https://doi.org/10.1038/s42254-021-00314-5",
+          "title": "Physics-informed machine learning",
+          "publication_year": 2021,
+          "venue": "Nature Reviews Physics",
+          "cited_by_count": 8252,
+          "authors": [
+            "George Em Karniadakis",
+            "Ioannis G. Kevrekidis",
+            "Lu Lu",
+            "Paris G. Perdikaris",
+            "Sifan Wang"
+          ],
+          "landing_page_url": "https://doi.org/10.1038/s42254-021-00314-5"
+        },
+        {
+          "id": "https://openalex.org/W3102100346",
+          "doi": "https://doi.org/10.1016/j.inffus.2021.05.008",
+          "title": "A review of uncertainty quantification in deep learning: Techniques, applications and challenges",
+          "publication_year": 2021,
+          "venue": "Information Fusion",
+          "cited_by_count": 2718,
+          "authors": [
+            "Moloud Abdar",
+            "Farhad Pourpanah",
+            "Sadiq Hussain",
+            "Dana Rezazadegan",
+            "Li Liu"
+          ],
+          "landing_page_url": "https://doi.org/10.1016/j.inffus.2021.05.008"
+        },
+        {
+          "id": "https://openalex.org/W3043426275",
+          "doi": "https://doi.org/10.1109/mci.2022.3155327",
+          "title": "Hands-On Bayesian Neural Networks\u2014A Tutorial for Deep Learning Users",
+          "publication_year": 2022,
+          "venue": "IEEE Computational Intelligence Magazine",
+          "cited_by_count": 889,
+          "authors": [
+            "Laurent Valentin Jospin",
+            "Hamid Laga",
+            "Farid Boussa\u00efd",
+            "Wray Buntine",
+            "Mohammed Bennamoun"
+          ],
+          "landing_page_url": "https://doi.org/10.1109/mci.2022.3155327"
+        },
+        {
+          "id": "https://openalex.org/W2898661956",
+          "doi": "https://doi.org/10.5194/hess-22-5639-2018",
+          "title": "HESS Opinions: Incubating deep-learning-powered hydrologic science advances as a community",
+          "publication_year": 2018,
+          "venue": "Hydrology and earth system sciences",
+          "cited_by_count": 356,
+          "authors": [
+            "Chaopeng Shen",
+            "Eric Laloy",
+            "AMIN A. ELSHORBAGY",
+            "Adrian Albert",
+            "Jerad D. Bales"
+          ],
+          "landing_page_url": "https://doi.org/10.5194/hess-22-5639-2018"
+        },
+        {
+          "id": "https://openalex.org/W4389519153",
+          "doi": "https://doi.org/10.18653/v1/2023.findings-emnlp",
+          "title": "Findings of the Association for Computational Linguistics: EMNLP 2023",
+          "publication_year": 2023,
+          "venue": "Preprint / Archive",
+          "cited_by_count": 349,
+          "authors": [],
+          "landing_page_url": "https://doi.org/10.18653/v1/2023.findings-emnlp"
+        },
+        {
+          "id": "https://openalex.org/W24275207",
+          "doi": null,
+          "title": "Agent Technology: Enabling Next Generation Computing (A Roadmap for Agent Based Computing)",
+          "publication_year": 2003,
+          "venue": "ePrints Soton (University of Southampton)",
+          "cited_by_count": 309,
+          "authors": [
+            "G. Flucke",
+            "Peter McBurney",
+            "Chris Preist"
+          ],
+          "landing_page_url": "https://eprints.soton.ac.uk/257309/1/al2roadmap.pdf"
+        },
+        {
+          "id": "https://openalex.org/W2618245351",
+          "doi": "https://doi.org/10.1101/142760",
+          "title": "Opportunities and obstacles for deep learning in biology and medicine",
+          "publication_year": 2017,
+          "venue": "bioRxiv (Cold Spring Harbor Laboratory)",
+          "cited_by_count": 308,
+          "authors": [
+            "Travers H. Ching",
+            "Daniel Scott Himmelstein",
+            "Brett K. Beaulieu\u2010Jones",
+            "Alexandr A. Kalinin",
+            "Brian T. Do"
+          ],
+          "landing_page_url": "https://doi.org/10.1101/142760"
+        },
+        {
+          "id": "https://openalex.org/W4309734258",
+          "doi": "https://doi.org/10.1016/j.trc.2022.103921",
+          "title": "Traffic prediction using artificial intelligence: Review of recent advances and emerging opportunities",
+          "publication_year": 2022,
+          "venue": "Transportation Research Part C Emerging Technologies",
+          "cited_by_count": 269,
+          "authors": [
+            "Maryam Shaygan",
+            "Collin Meese",
+            "Wanxin Li",
+            "Xiaoliang Zhao",
+            "Mark Nejad"
+          ],
+          "landing_page_url": "https://doi.org/10.1016/j.trc.2022.103921"
+        },
+        {
+          "id": "https://openalex.org/W4400767051",
+          "doi": "https://doi.org/10.1007/s11263-024-02181-w",
+          "title": "A Comprehensive Survey on Test-Time Adaptation Under Distribution Shifts",
+          "publication_year": 2024,
+          "venue": "International Journal of Computer Vision",
+          "cited_by_count": 261,
+          "authors": [
+            "Jian Liang",
+            "Ran He",
+            "Tieniu Tan"
+          ],
+          "landing_page_url": "https://doi.org/10.1007/s11263-024-02181-w"
+        },
+        {
+          "id": "https://openalex.org/W4226146865",
+          "doi": "https://doi.org/10.48550/arxiv.2112.11446",
+          "title": "Scaling Language Models: Methods, Analysis & Insights from Training Gopher",
+          "publication_year": 2021,
+          "venue": "arXiv (Cornell University)",
+          "cited_by_count": 239,
+          "authors": [
+            "Jack W. Rae",
+            "Sebastian Borgeaud",
+            "Trevor Y. Cai",
+            "Katie Millican",
+            "Jordan Hoffmann"
+          ],
+          "landing_page_url": "http://arxiv.org/abs/2112.11446"
+        },
+        {
+          "id": "https://openalex.org/W3109283012",
+          "doi": "https://doi.org/10.1186/s42162-020-00130-8",
+          "title": "Environmentally data-driven smart sustainable cities: applied innovative solutions for energy efficiency, pollution reduction, and urban metabolism",
+          "publication_year": 2020,
+          "venue": "Energy Informatics",
+          "cited_by_count": 223,
+          "authors": [
+            "Simon Elias Bibri",
+            "John Krogstie"
+          ],
+          "landing_page_url": "https://doi.org/10.1186/s42162-020-00130-8"
+        },
+        {
+          "id": "https://openalex.org/W4362553764",
+          "doi": "https://doi.org/10.1007/s11831-023-09899-9",
+          "title": "On the Analyses of Medical Images Using Traditional Machine Learning Techniques and Convolutional Neural Networks",
+          "publication_year": 2023,
+          "venue": "Archives of Computational Methods in Engineering",
+          "cited_by_count": 210,
+          "authors": [
+            "Saeed Iqbal",
+            "Adnan Nabeel Qureshi",
+            "Jianqiang Li",
+            "Tariq Mahmood"
+          ],
+          "landing_page_url": "https://doi.org/10.1007/s11831-023-09899-9"
+        },
+        {
+          "id": "https://openalex.org/W2105224953",
+          "doi": "https://doi.org/10.1007/s11263-006-0025-9",
+          "title": "Omnidirectional Vision Based Topological Navigation",
+          "publication_year": 2007,
+          "venue": "International Journal of Computer Vision",
+          "cited_by_count": 196,
+          "authors": [
+            "Toon Goedem\u00e9",
+            "Marnix Nuttin",
+            "Tinne Tuytelaars",
+            "Luc Van Gool"
+          ],
+          "landing_page_url": "https://doi.org/10.1007/s11263-006-0025-9"
+        },
+        {
+          "id": "https://openalex.org/W2810004585",
+          "doi": "https://doi.org/10.1016/j.ymssp.2018.05.033",
+          "title": "Nonlinear modeling of structures with bolted joints: A comparison of two approaches based on a time-domain and frequency-domain solver",
+          "publication_year": 2018,
+          "venue": "Mechanical Systems and Signal Processing",
+          "cited_by_count": 176,
+          "authors": [
+            "Robert M. Lacayo",
+            "L. Pesaresi",
+            "Johann Gro\u00df",
+            "Daniel Fochler",
+            "Jason Armand"
+          ],
+          "landing_page_url": "https://doi.org/10.1016/j.ymssp.2018.05.033"
+        },
+        {
+          "id": "https://openalex.org/W4319296823",
+          "doi": "https://doi.org/10.3390/math11040820",
+          "title": "A Survey on Active Learning: State-of-the-Art, Practical Challenges and Research Directions",
+          "publication_year": 2023,
+          "venue": "Mathematics",
+          "cited_by_count": 173,
+          "authors": [
+            "Alaa Tharwat",
+            "Wolfram Schenck"
+          ],
+          "landing_page_url": "https://doi.org/10.3390/math11040820"
+        },
+        {
+          "id": "https://openalex.org/W4407722258",
+          "doi": "https://doi.org/10.1038/s41586-024-08564-w",
+          "title": "Artificial intelligence for modelling infectious disease epidemics",
+          "publication_year": 2025,
+          "venue": "Nature",
+          "cited_by_count": 168,
+          "authors": [
+            "Moritz U. G. Kraemer",
+            "Joseph L.-H. Tsui",
+            "Serina Y. Chang",
+            "Spyros Lytras",
+            "Mark P. Khurana"
+          ],
+          "landing_page_url": "https://doi.org/10.1038/s41586-024-08564-w"
+        },
+        {
+          "id": "https://openalex.org/W3135329277",
+          "doi": "https://doi.org/10.1109/cvpr46437.2021.01664",
+          "title": "Pixel-wise Anomaly Detection in Complex Driving Scenes",
+          "publication_year": 2021,
+          "venue": "Preprint / Archive",
+          "cited_by_count": 167,
+          "authors": [
+            "Giancarlo Di Biase",
+            "Hermann Blum",
+            "Roland Siegwart",
+            "C\u00e9sar Cadena"
+          ],
+          "landing_page_url": "https://doi.org/10.1109/cvpr46437.2021.01664"
+        },
+        {
+          "id": "https://openalex.org/W2955297822",
+          "doi": "https://doi.org/10.1186/s40537-019-0221-4",
+          "title": "The anatomy of the data-driven smart sustainable city: instrumentation, datafication, computerization and related applications",
+          "publication_year": 2019,
+          "venue": "Journal Of Big Data",
+          "cited_by_count": 147,
+          "authors": [
+            "Simon Elias Bibri"
+          ],
+          "landing_page_url": "https://doi.org/10.1186/s40537-019-0221-4"
+        },
+        {
+          "id": "https://openalex.org/W4398256042",
+          "doi": "https://doi.org/10.3390/info15060299",
+          "title": "The Era of Artificial Intelligence Deception: Unraveling the Complexities of False Realities and Emerging Threats of Misinformation",
+          "publication_year": 2024,
+          "venue": "Information",
+          "cited_by_count": 146,
+          "authors": [
+            "Steven M. Williamson",
+            "Victor R. Prybutok"
+          ],
+          "landing_page_url": "https://doi.org/10.3390/info15060299"
+        },
+        {
+          "id": "https://openalex.org/W4404764563",
+          "doi": "https://doi.org/10.1038/s41562-024-02046-9",
+          "title": "Large language models surpass human experts in predicting neuroscience results",
+          "publication_year": 2024,
+          "venue": "Nature Human Behaviour",
+          "cited_by_count": 138,
+          "authors": [
+            "Xiaoliang Luo",
+            "Akilles Rechardt",
+            "Guangzhi Sun",
+            "Kevin Kermani Nejad",
+            "Felipe Y\u00e1\u00f1ez"
+          ],
+          "landing_page_url": "https://doi.org/10.1038/s41562-024-02046-9"
+        }
+      ]
+    },
+    {
+      "theme_id": "theme2_attribution",
+      "theme_name": "Citation Faithfulness & Fine-Grained Evidence Attribution",
+      "openalex_query": "retrieval augmented generation citation precision evidence attribution faithfulness",
+      "openalex_count": 970,
+      "crossref_query": "retrieval augmented generation citation attribution",
+      "crossref_count": 1045640,
+      "theme_total_count": 1046610,
+      "top_candidate_papers": [
+        {
+          "id": "https://openalex.org/W4365799947",
+          "doi": "https://doi.org/10.18653/v1/2020.coling-main",
+          "title": "Proceedings of the 28th International Conference on Computational Linguistics",
+          "publication_year": 2020,
+          "venue": "Preprint / Archive",
+          "cited_by_count": 1422,
+          "authors": [],
+          "landing_page_url": "http://doi.org/10.18653/v1/2020.coling-main"
+        },
+        {
+          "id": "https://openalex.org/W2988346595",
+          "doi": "https://doi.org/10.18653/v1/2020.acl-main.408",
+          "title": "ERASER: A Benchmark to Evaluate Rationalized NLP Models",
+          "publication_year": 2020,
+          "venue": "Preprint / Archive",
+          "cited_by_count": 552,
+          "authors": [
+            "Jay DeYoung",
+            "Sarthak Jain",
+            "Nazneen Fatema Rajani",
+            "Eric Lehman",
+            "Caiming Xiong"
+          ],
+          "landing_page_url": "https://doi.org/10.18653/v1/2020.acl-main.408"
+        },
+        {
+          "id": "https://openalex.org/W2293771131",
+          "doi": "https://doi.org/10.1561/9781601984715",
+          "title": "Automatic Summarization",
+          "publication_year": 2011,
+          "venue": "now publishers, Inc. eBooks",
+          "cited_by_count": 457,
+          "authors": [
+            "Ani Nenkova"
+          ],
+          "landing_page_url": "https://doi.org/10.1561/9781601984715"
+        },
+        {
+          "id": "https://openalex.org/W4410343193",
+          "doi": "https://doi.org/10.1038/s41746-025-01670-7",
+          "title": "A framework to assess clinical safety and hallucination rates of LLMs for medical text summarisation",
+          "publication_year": 2025,
+          "venue": "npj Digital Medicine",
+          "cited_by_count": 364,
+          "authors": [
+            "Elham Asgari",
+            "Nina Monta\u00f1a-Brown",
+            "Magda Dubois",
+            "Saleh Khalil",
+            "Jasmine Balloch"
+          ],
+          "landing_page_url": "https://doi.org/10.1038/s41746-025-01670-7"
+        },
+        {
+          "id": "https://openalex.org/W4389519598",
+          "doi": "https://doi.org/10.18653/v1/2023.emnlp-main.741",
+          "title": "FActScore: Fine-grained Atomic Evaluation of Factual Precision in Long Form Text Generation",
+          "publication_year": 2023,
+          "venue": "Preprint / Archive",
+          "cited_by_count": 356,
+          "authors": [
+            "Sewon Min",
+            "Kalpesh Krishna",
+            "Xinxi Lyu",
+            "Mike Lewis",
+            "Wen-tau Yih"
+          ],
+          "landing_page_url": "https://doi.org/10.18653/v1/2023.emnlp-main.741"
+        },
+        {
+          "id": "https://openalex.org/W4294691140",
+          "doi": "https://doi.org/10.1109/access.2022.3204171",
+          "title": "Explainable Artificial Intelligence in CyberSecurity: A Survey",
+          "publication_year": 2022,
+          "venue": "IEEE Access",
+          "cited_by_count": 322,
+          "authors": [
+            "Nicola Capuano",
+            "Giuseppe Fenza",
+            "Vincenzo Loia",
+            "Claudio Stanzione"
+          ],
+          "landing_page_url": "https://doi.org/10.1109/access.2022.3204171"
+        },
+        {
+          "id": "https://openalex.org/W3130450512",
+          "doi": "https://doi.org/10.1007/s10618-023-00933-9",
+          "title": "Benchmarking and survey of explanation methods for black box models",
+          "publication_year": 2023,
+          "venue": "Data Mining and Knowledge Discovery",
+          "cited_by_count": 267,
+          "authors": [
+            "Francesco Bodria",
+            "Fosca Giannotti",
+            "Riccardo Guidotti",
+            "Francesca Naretto",
+            "Dino Pedreschi"
+          ],
+          "landing_page_url": "https://doi.org/10.1007/s10618-023-00933-9"
+        },
+        {
+          "id": "https://openalex.org/W4412158322",
+          "doi": "https://doi.org/10.1162/coli.a.16",
+          "title": "\ud83e\udddcSiren\u2019s Song in the AI Ocean: A Survey on Hallucination in Large Language Models",
+          "publication_year": 2025,
+          "venue": "Computational Linguistics",
+          "cited_by_count": 242,
+          "authors": [
+            "Yue Zhang",
+            "Yafu Li",
+            "Leyang Cui",
+            "Deng Cai",
+            "Lemao Liu"
+          ],
+          "landing_page_url": "https://doi.org/10.1162/coli.a.16"
+        },
+        {
+          "id": "https://openalex.org/W4386501849",
+          "doi": "https://doi.org/10.48550/arxiv.2309.01219",
+          "title": "Siren's Song in the AI Ocean: A Survey on Hallucination in Large Language Models",
+          "publication_year": 2023,
+          "venue": "arXiv (Cornell University)",
+          "cited_by_count": 239,
+          "authors": [
+            "Yue Zhang",
+            "Yafu Li",
+            "Leyang Cui",
+            "Cai, Deng",
+            "Lemao Liu"
+          ],
+          "landing_page_url": "http://arxiv.org/abs/2309.01219"
+        },
+        {
+          "id": "https://openalex.org/W4389520670",
+          "doi": "https://doi.org/10.18653/v1/2023.emnlp-main.398",
+          "title": "Enabling Large Language Models to Generate Text with Citations",
+          "publication_year": 2023,
+          "venue": "Preprint / Archive",
+          "cited_by_count": 188,
+          "authors": [
+            "Tianyu Gao",
+            "Howard Yen",
+            "Jiatong Yu",
+            "Danqi Chen"
+          ],
+          "landing_page_url": "https://doi.org/10.18653/v1/2023.emnlp-main.398"
+        },
+        {
+          "id": "https://openalex.org/W4384920109",
+          "doi": "https://doi.org/10.48550/arxiv.2307.10169",
+          "title": "Challenges and Applications of Large Language Models",
+          "publication_year": 2023,
+          "venue": "arXiv (Cornell University)",
+          "cited_by_count": 178,
+          "authors": [
+            "Jean Kaddour",
+            "Joshua Harris",
+            "Maximilian Mozes",
+            "Herbie Bradley",
+            "Roberta R\u0103ileanu"
+          ],
+          "landing_page_url": "http://arxiv.org/abs/2307.10169"
+        },
+        {
+          "id": "https://openalex.org/W4401815218",
+          "doi": "https://doi.org/10.1038/s42256-024-00881-z",
+          "title": "Factuality challenges in the era of large language models and opportunities for fact-checking",
+          "publication_year": 2024,
+          "venue": "Nature Machine Intelligence",
+          "cited_by_count": 169,
+          "authors": [
+            "Isabelle Augenstein",
+            "Timothy J. Baldwin",
+            "Meeyoung Cha",
+            "Tanmoy Chakraborty",
+            "Giovanni Luca Ciampaglia"
+          ],
+          "landing_page_url": "https://doi.org/10.1038/s42256-024-00881-z"
+        },
+        {
+          "id": "https://openalex.org/W4401484139",
+          "doi": "https://doi.org/10.1007/s10462-024-10896-y",
+          "title": "Towards trustworthy LLMs: a review on debiasing and dehallucinating in large language models",
+          "publication_year": 2024,
+          "venue": "Artificial Intelligence Review",
+          "cited_by_count": 138,
+          "authors": [
+            "Zichao Lin",
+            "Shuyan Guan",
+            "Wending Zhang",
+            "Huiyan Zhang",
+            "Huiyan Zhang"
+          ],
+          "landing_page_url": "https://doi.org/10.1007/s10462-024-10896-y"
+        },
+        {
+          "id": "https://openalex.org/W4402567773",
+          "doi": "https://doi.org/10.1093/bioinformatics/btae560",
+          "title": "Biomedical knowledge graph-optimized prompt generation for large language models",
+          "publication_year": 2024,
+          "venue": "Bioinformatics",
+          "cited_by_count": 135,
+          "authors": [
+            "Karthik Soman",
+            "Peter W. Rose",
+            "John H Morris",
+            "Rabia E Akbas",
+            "Brett Smith"
+          ],
+          "landing_page_url": "https://doi.org/10.1093/bioinformatics/btae560"
+        },
+        {
+          "id": "https://openalex.org/W4401042808",
+          "doi": "https://doi.org/10.18653/v1/2024.naacl-long.20",
+          "title": "ARES: An Automated Evaluation Framework for Retrieval-Augmented Generation Systems",
+          "publication_year": 2024,
+          "venue": "Preprint / Archive",
+          "cited_by_count": 128,
+          "authors": [
+            "Jon Saad-Falcon",
+            "Omar Khattab",
+            "Christopher E. Potts",
+            "Matei Zaharia"
+          ],
+          "landing_page_url": "https://doi.org/10.18653/v1/2024.naacl-long.20"
+        },
+        {
+          "id": "https://openalex.org/W4404138521",
+          "doi": "https://doi.org/10.2196/58670",
+          "title": "Leveraging Medical Knowledge Graphs Into Large Language Models for Diagnosis Prediction: Design and Application Study",
+          "publication_year": 2024,
+          "venue": "JMIR AI",
+          "cited_by_count": 102,
+          "authors": [
+            "Yanjun Gao",
+            "Ruizhe Li",
+            "Emma Croxford",
+            "John Caskey",
+            "Brian W. Patterson"
+          ],
+          "landing_page_url": "https://doi.org/10.2196/58670"
+        },
+        {
+          "id": "https://openalex.org/W4412954363",
+          "doi": "https://doi.org/10.1038/s44387-025-00019-5",
+          "title": "Exploring the role of large language models in the scientific method: from hypothesis to discovery",
+          "publication_year": 2025,
+          "venue": "npj Artificial Intelligence",
+          "cited_by_count": 84,
+          "authors": [
+            "Yanbo Zhang",
+            "Sumeer Ahmad Khan",
+            "Adnan Mahmud",
+            "Huck Yang",
+            "Alexander Lavin"
+          ],
+          "landing_page_url": "https://doi.org/10.1038/s44387-025-00019-5"
+        },
+        {
+          "id": "https://openalex.org/W4393299232",
+          "doi": "https://doi.org/10.48550/arxiv.2402.19473",
+          "title": "Retrieval-Augmented Generation for AI-Generated Content: A Survey",
+          "publication_year": 2024,
+          "venue": "arXiv (Cornell University)",
+          "cited_by_count": 84,
+          "authors": [
+            "Penghao Zhao",
+            "Hailin Zhang",
+            "Qinhan Yu",
+            "Zhengren Wang",
+            "Yunteng Geng"
+          ],
+          "landing_page_url": "http://arxiv.org/abs/2402.19473"
+        },
+        {
+          "id": "https://openalex.org/W4414128336",
+          "doi": "https://doi.org/10.3390/ai6090226",
+          "title": "Retrieval-Augmented Generation (RAG) in Healthcare: A Comprehensive Review",
+          "publication_year": 2025,
+          "venue": "AI",
+          "cited_by_count": 82,
+          "authors": [
+            "Fnu Neha",
+            "Deepshikha Bhati",
+            "Deepak Kumar Shukla"
+          ],
+          "landing_page_url": "https://doi.org/10.3390/ai6090226"
+        },
+        {
+          "id": "https://openalex.org/W4402684150",
+          "doi": "https://doi.org/10.18653/v1/2024.acl-long.747",
+          "title": "Evaluating Very Long-Term Conversational Memory of LLM Agents",
+          "publication_year": 2024,
+          "venue": "Preprint / Archive",
+          "cited_by_count": 81,
+          "authors": [
+            "Adyasha Maharana",
+            "Dong-Ho Lee",
+            "Sergey Tulyakov",
+            "Mohit Bansal",
+            "Francesco Barbieri"
+          ],
+          "landing_page_url": "https://doi.org/10.18653/v1/2024.acl-long.747"
+        }
+      ]
+    },
+    {
+      "theme_id": "theme3_conflicts",
+      "theme_name": "Conflict Resolution & Dialectics in Retrieved Knowledge",
+      "openalex_query": "retrieval augmented generation contradictory information conflict resolution",
+      "openalex_count": 2439,
+      "crossref_query": "retrieval augmented generation conflicting evidence",
+      "crossref_count": 2138351,
+      "theme_total_count": 2140790,
+      "top_candidate_papers": [
+        {
+          "id": "https://openalex.org/W3006881356",
+          "doi": "https://doi.org/10.1162/tacl_a_00349",
+          "title": "A Primer in BERTology: What We Know About How BERT Works",
+          "publication_year": 2020,
+          "venue": "Transactions of the Association for Computational Linguistics",
+          "cited_by_count": 1576,
+          "authors": [
+            "Anna Rogers",
+            "Olga Kovaleva",
+            "Anna Rumshisky"
+          ],
+          "landing_page_url": "https://doi.org/10.1162/tacl_a_00349"
+        },
+        {
+          "id": "https://openalex.org/W4362515116",
+          "doi": "https://doi.org/10.1007/s11704-026-60308-3",
+          "title": "A Survey of Large Language Models",
+          "publication_year": 2026,
+          "venue": "Frontiers of Computer Science",
+          "cited_by_count": 1557,
+          "authors": [
+            "Wayne Xin Zhao",
+            "Kun Zhou",
+            "Junyi Li",
+            "Tianyi Tang",
+            "Zican Dong"
+          ],
+          "landing_page_url": "https://doi.org/10.1007/s11704-026-60308-3"
+        },
+        {
+          "id": "https://openalex.org/W2748454491",
+          "doi": "https://doi.org/10.3389/fpsyg.2017.01454",
+          "title": "The Influences of Emotion on Learning and Memory",
+          "publication_year": 2017,
+          "venue": "Frontiers in Psychology",
+          "cited_by_count": 1551,
+          "authors": [
+            "Chai Meei Tyng",
+            "Hafeez Ullah Amin",
+            "Mohamad Naufal Mohamad Saad",
+            "Aamir Saeed Malik"
+          ],
+          "landing_page_url": "https://doi.org/10.3389/fpsyg.2017.01454"
+        },
+        {
+          "id": "https://openalex.org/W2999472659",
+          "doi": "https://doi.org/10.1109/comst.2019.2962586",
+          "title": "A Survey on the Internet of Things (IoT) Forensics: Challenges, Approaches, and Open Issues",
+          "publication_year": 2020,
+          "venue": "IEEE Communications Surveys & Tutorials",
+          "cited_by_count": 862,
+          "authors": [
+            "Maria Stoyanova",
+            "Yannis Nikoloudakis",
+            "Spyros Panagiotakis",
+            "Evangelos Pallis",
+            "Evangelos Markakis"
+          ],
+          "landing_page_url": "https://doi.org/10.1109/comst.2019.2962586"
+        },
+        {
+          "id": "https://openalex.org/W2108614290",
+          "doi": "https://doi.org/10.5194/hess-15-471-2011",
+          "title": "Climate change and mountain water resources: overview and recommendations for research, management and policy",
+          "publication_year": 2011,
+          "venue": "Hydrology and earth system sciences",
+          "cited_by_count": 728,
+          "authors": [
+            "Daniel Viviroli",
+            "David Archer",
+            "Wouter Buytaert",
+            "Hayley Jane Fowler",
+            "Gregory B. Greenwood"
+          ],
+          "landing_page_url": "https://doi.org/10.5194/hess-15-471-2011"
+        },
+        {
+          "id": "https://openalex.org/W2140676672",
+          "doi": "https://doi.org/10.1162/coli.2008.34.1.1",
+          "title": "Modeling Local Coherence: An Entity-Based Approach",
+          "publication_year": 2008,
+          "venue": "Computational Linguistics",
+          "cited_by_count": 694,
+          "authors": [
+            "Regina Barzilay",
+            "Mirella Lapata"
+          ],
+          "landing_page_url": "https://doi.org/10.1162/coli.2008.34.1.1"
+        },
+        {
+          "id": "https://openalex.org/W2511217667",
+          "doi": "https://doi.org/10.5194/acp-17-2103-2017",
+          "title": "Nitrate radicals and biogenic volatile organic compounds: oxidation, mechanisms, and organic aerosol",
+          "publication_year": 2017,
+          "venue": "Atmospheric chemistry and physics",
+          "cited_by_count": 638,
+          "authors": [
+            "N. L. Ng",
+            "Steven S. S Brown",
+            "Alexander Thomas Archibald",
+            "E. Atlas",
+            "Ronald Carl Cohen"
+          ],
+          "landing_page_url": "https://doi.org/10.5194/acp-17-2103-2017"
+        },
+        {
+          "id": "https://openalex.org/W2106531784",
+          "doi": "https://doi.org/10.1016/s0893-133x(97)00194-2",
+          "title": "Serotonin in Aging, Late-Life Depression, and Alzheimer's Disease: The Emerging Role of Functional Imaging",
+          "publication_year": 1998,
+          "venue": "Neuropsychopharmacology",
+          "cited_by_count": 525,
+          "authors": [
+            "CAROLYN CIDIS MELTZER"
+          ],
+          "landing_page_url": "https://doi.org/10.1016/s0893-133x(97)00194-2"
+        },
+        {
+          "id": "https://openalex.org/W4401306886",
+          "doi": "https://doi.org/10.4230/lipics.giscience.2025.3",
+          "title": "Enriching Location Representation with Detailed Semantic Information",
+          "publication_year": 2024,
+          "venue": "arXiv (Cornell University)",
+          "cited_by_count": 478,
+          "authors": [
+            "Grattafiori, Aaron",
+            "Dubey, Abhimanyu",
+            "Jauhri, Abhinav",
+            "Pandey, Abhinav",
+            "Kadian, Abhishek"
+          ],
+          "landing_page_url": "http://arxiv.org/abs/2407.21783"
+        },
+        {
+          "id": "https://openalex.org/W2293771131",
+          "doi": "https://doi.org/10.1561/9781601984715",
+          "title": "Automatic Summarization",
+          "publication_year": 2011,
+          "venue": "now publishers, Inc. eBooks",
+          "cited_by_count": 457,
+          "authors": [
+            "Ani Nenkova"
+          ],
+          "landing_page_url": "https://doi.org/10.1561/9781601984715"
+        },
+        {
+          "id": "https://openalex.org/W2096434649",
+          "doi": "https://doi.org/10.1007/s11257-008-9051-3",
+          "title": "The effects of transparency on trust in and acceptance of a content-based art recommender",
+          "publication_year": 2008,
+          "venue": "User Modeling and User-Adapted Interaction",
+          "cited_by_count": 452,
+          "authors": [
+            "Henriette S. M. Cramer",
+            "Vanessa Evers",
+            "Satyan Ramlal",
+            "Maarten van Someren",
+            "Lloyd Rutledge"
+          ],
+          "landing_page_url": "https://doi.org/10.1007/s11257-008-9051-3"
+        },
+        {
+          "id": "https://openalex.org/W3024126283",
+          "doi": "https://doi.org/10.3389/fimmu.2020.00938",
+          "title": "Myeloid Cell-Derived Arginase in Cancer Immune Response",
+          "publication_year": 2020,
+          "venue": "Frontiers in Immunology",
+          "cited_by_count": 439,
+          "authors": [
+            "Tomasz M. Grzywa",
+            "Anna Sosnowska",
+            "Pawe\u0142 Matryba",
+            "Zuzanna Rydzy\u0144ska",
+            "Marcin Jasi\u0144ski"
+          ],
+          "landing_page_url": "https://doi.org/10.3389/fimmu.2020.00938"
+        },
+        {
+          "id": "https://openalex.org/W2152672184",
+          "doi": "https://doi.org/10.1186/gb-2013-14-8-r93",
+          "title": "Web Apollo: a web-based genomic annotation editing platform",
+          "publication_year": 2013,
+          "venue": "Genome biology",
+          "cited_by_count": 419,
+          "authors": [
+            "Eduardo Lee",
+            "Gregg A. Helt",
+            "Justin Reese",
+            "Monica C. Mu\u00f1oz-Torres",
+            "Christopher P. Childers"
+          ],
+          "landing_page_url": "https://doi.org/10.1186/gb-2013-14-8-r93"
+        },
+        {
+          "id": "https://openalex.org/W4386443326",
+          "doi": "https://doi.org/10.1145/3618295",
+          "title": "A Comprehensive Survey on Automatic Knowledge Graph Construction",
+          "publication_year": 2023,
+          "venue": "ACM Computing Surveys",
+          "cited_by_count": 369,
+          "authors": [
+            "Lingfeng Zhong",
+            "Jia Xin Wu",
+            "Qian Li",
+            "Hao Peng",
+            "Xindong Wu"
+          ],
+          "landing_page_url": "https://doi.org/10.1145/3618295"
+        },
+        {
+          "id": "https://openalex.org/W4409349694",
+          "doi": "https://doi.org/10.1007/s10462-025-11198-7",
+          "title": "A comprehensive survey of loss functions and metrics in deep learning",
+          "publication_year": 2025,
+          "venue": "Artificial Intelligence Review",
+          "cited_by_count": 336,
+          "authors": [
+            "Juan R. Terven",
+            "Diana Margarita C\u00f3rdova Esparza",
+            "Julio-Alejandro Romero-Gonz\u00e1lez",
+            "Alfonso Ram\u00edrez-Pedraza",
+            "Edgar Arturo Ch\u00e1vez\u2010Urbiola"
+          ],
+          "landing_page_url": "https://doi.org/10.1007/s10462-025-11198-7"
+        },
+        {
+          "id": "https://openalex.org/W2116084547",
+          "doi": "https://doi.org/10.1124/pr.114.010454",
+          "title": "International Union of Basic and Clinical Pharmacology. XCIX. Angiotensin Receptors: Interpreters of Pathophysiological Angiotensinergic Stimuli",
+          "publication_year": 2015,
+          "venue": "Pharmacological Reviews",
+          "cited_by_count": 302,
+          "authors": [
+            "Sadashiva S. Karnik",
+            "Hamiyet \u00dcnal",
+            "Jacqueline R. Kemp",
+            "Kalyan C. Tirupula",
+            "Satoru Eguchi"
+          ],
+          "landing_page_url": "https://doi.org/10.1124/pr.114.010454"
+        },
+        {
+          "id": "https://openalex.org/W4400047099",
+          "doi": "https://doi.org/10.1093/jla/laae003",
+          "title": "Large Legal Fictions: Profiling Legal Hallucinations in Large Language Models",
+          "publication_year": 2024,
+          "venue": "The Journal of Legal Analysis",
+          "cited_by_count": 288,
+          "authors": [
+            "Matthew Dahl",
+            "Varun Magesh",
+            "Mirac Suzgun",
+            "Daniel E. Ho"
+          ],
+          "landing_page_url": "https://doi.org/10.1093/jla/laae003"
+        },
+        {
+          "id": "https://openalex.org/W1932998003",
+          "doi": "https://doi.org/10.1111/nyas.12406",
+          "title": "Hierarchical processing in music, language, and action: Lashley revisited",
+          "publication_year": 2014,
+          "venue": "Annals of the New York Academy of Sciences",
+          "cited_by_count": 259,
+          "authors": [
+            "W. Tecumseh Fitch",
+            "Mauricio J. D. Martins"
+          ],
+          "landing_page_url": "https://doi.org/10.1111/nyas.12406"
+        },
+        {
+          "id": "https://openalex.org/W4413427262",
+          "doi": "https://doi.org/10.1016/j.inffus.2025.103599",
+          "title": "AI Agents vs. Agentic AI: A Conceptual taxonomy, applications and challenges",
+          "publication_year": 2025,
+          "venue": "Information Fusion",
+          "cited_by_count": 244,
+          "authors": [
+            "Ranjan Sapkota",
+            "Konstantinos I. Roumeliotis",
+            "Manoj Karkee"
+          ],
+          "landing_page_url": "https://doi.org/10.1016/j.inffus.2025.103599"
+        },
+        {
+          "id": "https://openalex.org/W2161041430",
+          "doi": "https://doi.org/10.5117/9789089642561",
+          "title": "Bastard Culture! How User Participation Transforms Cultural Production",
+          "publication_year": 2011,
+          "venue": "Amsterdam University Press eBooks",
+          "cited_by_count": 230,
+          "authors": [
+            "Mirko Tobias Sch\u00e4fer"
+          ],
+          "landing_page_url": "https://doi.org/10.5117/9789089642561"
+        }
+      ]
+    },
+    {
+      "theme_id": "theme4_multihop",
+      "theme_name": "Multi-Hop Reasoning, Entailment Trees & Knowledge Graphs in RAG",
+      "openalex_query": "multi-hop retrieval augmented generation entailment tree reasoning graph",
+      "openalex_count": 978,
+      "crossref_query": "multi-hop retrieval augmented generation reasoning",
+      "crossref_count": 2429983,
+      "theme_total_count": 2430961,
+      "top_candidate_papers": [
+        {
+          "id": "https://openalex.org/W4206484811",
+          "doi": "https://doi.org/10.1109/access.2021.3140175",
+          "title": "A Metaverse: Taxonomy, Components, Applications, and Open Challenges",
+          "publication_year": 2022,
+          "venue": "IEEE Access",
+          "cited_by_count": 1837,
+          "authors": [
+            "Sangmin Park",
+            "Young\u2010Gab Kim"
+          ],
+          "landing_page_url": "https://doi.org/10.1109/access.2021.3140175"
+        },
+        {
+          "id": "https://openalex.org/W4205807230",
+          "doi": "https://doi.org/10.18653/v1/2021.emnlp-main",
+          "title": "Proceedings of the 2021 Conference on Empirical Methods in Natural Language Processing",
+          "publication_year": 2021,
+          "venue": "Preprint / Archive",
+          "cited_by_count": 1686,
+          "authors": [],
+          "landing_page_url": "https://doi.org/10.18653/v1/2021.emnlp-main"
+        },
+        {
+          "id": "https://openalex.org/W4362515116",
+          "doi": "https://doi.org/10.1007/s11704-026-60308-3",
+          "title": "A Survey of Large Language Models",
+          "publication_year": 2026,
+          "venue": "Frontiers of Computer Science",
+          "cited_by_count": 1557,
+          "authors": [
+            "Wayne Xin Zhao",
+            "Kun Zhou",
+            "Junyi Li",
+            "Tianyi Tang",
+            "Zican Dong"
+          ],
+          "landing_page_url": "https://doi.org/10.1007/s11704-026-60308-3"
+        },
+        {
+          "id": "https://openalex.org/W2950104027",
+          "doi": "https://doi.org/10.1109/cvpr.2019.00686",
+          "title": "GQA: A New Dataset for Real-World Visual Reasoning and Compositional Question Answering",
+          "publication_year": 2019,
+          "venue": "Preprint / Archive",
+          "cited_by_count": 1462,
+          "authors": [
+            "Drew A. Hudson",
+            "Christopher D. Manning"
+          ],
+          "landing_page_url": "https://doi.org/10.1109/cvpr.2019.00686"
+        },
+        {
+          "id": "https://openalex.org/W4365799947",
+          "doi": "https://doi.org/10.18653/v1/2020.coling-main",
+          "title": "Proceedings of the 28th International Conference on Computational Linguistics",
+          "publication_year": 2020,
+          "venue": "Preprint / Archive",
+          "cited_by_count": 1422,
+          "authors": [],
+          "landing_page_url": "http://doi.org/10.18653/v1/2020.coling-main"
+        },
+        {
+          "id": "https://openalex.org/W3101118213",
+          "doi": "https://doi.org/10.18653/v1/2021.findings-emnlp",
+          "title": "Findings of the Association for Computational Linguistics: EMNLP 2021",
+          "publication_year": 2021,
+          "venue": "Preprint / Archive",
+          "cited_by_count": 897,
+          "authors": [],
+          "landing_page_url": "https://doi.org/10.18653/v1/2021.findings-emnlp"
+        },
+        {
+          "id": "https://openalex.org/W4389984066",
+          "doi": "https://doi.org/10.48550/arxiv.2312.10997",
+          "title": "Retrieval-Augmented Generation for Large Language Models: A Survey",
+          "publication_year": 2023,
+          "venue": "arXiv (Cornell University)",
+          "cited_by_count": 749,
+          "authors": [
+            "Yunfan Gao",
+            "Yun Xiong",
+            "Xinyu Gao",
+            "Kangxiang Jia",
+            "Jinliu Pan"
+          ],
+          "landing_page_url": "http://arxiv.org/abs/2312.10997"
+        },
+        {
+          "id": "https://openalex.org/W3179283102",
+          "doi": "https://doi.org/10.1109/comst.2022.3199901",
+          "title": "Evolution of Non-Terrestrial Networks From 5G to 6G: A Survey",
+          "publication_year": 2022,
+          "venue": "IEEE Communications Surveys & Tutorials",
+          "cited_by_count": 665,
+          "authors": [
+            "Mohammad Mahdi Azari",
+            "Sourabh Solanki",
+            "Symeon Chatzinotas",
+            "Oltjon Kodheli",
+            "Hazem Sallouha"
+          ],
+          "landing_page_url": "https://doi.org/10.1109/comst.2022.3199901"
+        },
+        {
+          "id": "https://openalex.org/W4321786089",
+          "doi": "https://doi.org/10.1145/3583558",
+          "title": "From Anecdotal Evidence to Quantitative Evaluation Methods: A Systematic Review on Evaluating Explainable AI",
+          "publication_year": 2023,
+          "venue": "ACM Computing Surveys",
+          "cited_by_count": 555,
+          "authors": [
+            "Meike Nauta",
+            "Jan Trienes",
+            "Shreyasi Pathak",
+            "Elisa Nguyen",
+            "Michelle Peters"
+          ],
+          "landing_page_url": "https://doi.org/10.1145/3583558"
+        },
+        {
+          "id": "https://openalex.org/W3035231859",
+          "doi": "https://doi.org/10.18653/v1/2020.acl-main.745",
+          "title": "TaBERT: Pretraining for Joint Understanding of Textual and Tabular Data",
+          "publication_year": 2020,
+          "venue": "Preprint / Archive",
+          "cited_by_count": 462,
+          "authors": [
+            "Pengcheng Yin",
+            "Graham Neubig",
+            "Wen-tau Yih",
+            "Sebastian Riedel"
+          ],
+          "landing_page_url": "https://doi.org/10.18653/v1/2020.acl-main.745"
+        },
+        {
+          "id": "https://openalex.org/W3100445615",
+          "doi": "https://doi.org/10.1038/s41578-020-00255-y",
+          "title": "Emerging materials intelligence ecosystems propelled by machine learning",
+          "publication_year": 2020,
+          "venue": "Nature Reviews Materials",
+          "cited_by_count": 457,
+          "authors": [
+            "Rohit Batra",
+            "Le Song",
+            "Rampi Ramprasad"
+          ],
+          "landing_page_url": "https://doi.org/10.1038/s41578-020-00255-y"
+        },
+        {
+          "id": "https://openalex.org/W2473394283",
+          "doi": "https://doi.org/10.1007/978-1-4302-5990-9",
+          "title": "Efficient Learning Machines: Theories, Concepts, and Applications for Engineers and System Designers",
+          "publication_year": 2015,
+          "venue": "Directory of Open access Books (OAPEN Foundation)",
+          "cited_by_count": 457,
+          "authors": [
+            "Mariette Awad",
+            "Rahul Khanna"
+          ],
+          "landing_page_url": "https://www.doabooks.org/doab?func=search&query=rid:27338"
+        },
+        {
+          "id": "https://openalex.org/W4401671778",
+          "doi": "https://doi.org/10.1007/s10462-024-10888-y",
+          "title": "Large language models (LLMs): survey, technical frameworks, and future challenges",
+          "publication_year": 2024,
+          "venue": "Artificial Intelligence Review",
+          "cited_by_count": 379,
+          "authors": [
+            "Pranjal Kumar"
+          ],
+          "landing_page_url": "https://doi.org/10.1007/s10462-024-10888-y"
+        },
+        {
+          "id": "https://openalex.org/W4319793302",
+          "doi": "https://doi.org/10.48550/arxiv.2302.04023",
+          "title": "A Multitask, Multilingual, Multimodal Evaluation of ChatGPT on Reasoning, Hallucination, and Interactivity",
+          "publication_year": 2023,
+          "venue": "arXiv (Cornell University)",
+          "cited_by_count": 349,
+          "authors": [
+            "Yejin Bang",
+            "Samuel Cahyawijaya",
+            "Nayeon Lee",
+            "Wenliang Dai",
+            "Su, Dan"
+          ],
+          "landing_page_url": "http://arxiv.org/abs/2302.04023"
+        },
+        {
+          "id": "https://openalex.org/W4389519153",
+          "doi": "https://doi.org/10.18653/v1/2023.findings-emnlp",
+          "title": "Findings of the Association for Computational Linguistics: EMNLP 2023",
+          "publication_year": 2023,
+          "venue": "Preprint / Archive",
+          "cited_by_count": 349,
+          "authors": [],
+          "landing_page_url": "https://doi.org/10.18653/v1/2023.findings-emnlp"
+        },
+        {
+          "id": "https://openalex.org/W4221153690",
+          "doi": "https://doi.org/10.18653/v1/2022.acl-long.551",
+          "title": "LinkBERT: Pretraining Language Models with Document Links",
+          "publication_year": 2022,
+          "venue": "Proceedings of the 60th Annual Meeting of the Association for Computational Linguistics (Volume 1: Long Papers)",
+          "cited_by_count": 320,
+          "authors": [
+            "Michihiro Yasunaga",
+            "Jure Leskovec",
+            "Percy Liang"
+          ],
+          "landing_page_url": "https://doi.org/10.18653/v1/2022.acl-long.551"
+        },
+        {
+          "id": "https://openalex.org/W4389518784",
+          "doi": "https://doi.org/10.18653/v1/2023.emnlp-main.397",
+          "title": "HaluEval: A Large-Scale Hallucination Evaluation Benchmark for Large Language Models",
+          "publication_year": 2023,
+          "venue": "Preprint / Archive",
+          "cited_by_count": 291,
+          "authors": [
+            "Junyi Li",
+            "Xiaoxue Cheng",
+            "Xin Zhao",
+            "Jian\u2010Yun Nie",
+            "Ji-Rong Wen"
+          ],
+          "landing_page_url": "https://doi.org/10.18653/v1/2023.emnlp-main.397"
+        },
+        {
+          "id": "https://openalex.org/W3210179814",
+          "doi": "https://doi.org/10.1016/j.artint.2021.103627",
+          "title": "Knowledge graphs as tools for explainable machine learning: A survey",
+          "publication_year": 2021,
+          "venue": "Artificial Intelligence",
+          "cited_by_count": 287,
+          "authors": [
+            "Ilaria Tiddi",
+            "Stefan Schlobach"
+          ],
+          "landing_page_url": "https://doi.org/10.1016/j.artint.2021.103627"
+        },
+        {
+          "id": "https://openalex.org/W4412158322",
+          "doi": "https://doi.org/10.1162/coli.a.16",
+          "title": "\ud83e\udddcSiren\u2019s Song in the AI Ocean: A Survey on Hallucination in Large Language Models",
+          "publication_year": 2025,
+          "venue": "Computational Linguistics",
+          "cited_by_count": 242,
+          "authors": [
+            "Yue Zhang",
+            "Yafu Li",
+            "Leyang Cui",
+            "Deng Cai",
+            "Lemao Liu"
+          ],
+          "landing_page_url": "https://doi.org/10.1162/coli.a.16"
+        },
+        {
+          "id": "https://openalex.org/W4386501849",
+          "doi": "https://doi.org/10.48550/arxiv.2309.01219",
+          "title": "Siren's Song in the AI Ocean: A Survey on Hallucination in Large Language Models",
+          "publication_year": 2023,
+          "venue": "arXiv (Cornell University)",
+          "cited_by_count": 239,
+          "authors": [
+            "Yue Zhang",
+            "Yafu Li",
+            "Leyang Cui",
+            "Cai, Deng",
+            "Lemao Liu"
+          ],
+          "landing_page_url": "http://arxiv.org/abs/2309.01219"
+        }
+      ]
+    }
+  ]
+}

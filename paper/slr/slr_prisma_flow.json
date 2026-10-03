@@ -1,0 +1,133 @@
+{
+  "title": "PRISMA 2020 Systematic Literature Review Flow for Cogent",
+  "protocol_version": "PRISMA 2020",
+  "search_date": "2026-10-03",
+  "identification": {
+    "databases": {
+      "OpenAlex (IEEE, ACM, ACL, ScienceDirect, Springer, arXiv)": 5979,
+      "Crossref & arXiv Preprints": 2145
+    },
+    "total_records_identified": 8124,
+    "duplicates_removed": 1842,
+    "unique_records_screened": 6282
+  },
+  "screening": {
+    "records_screened_title_abstract": 6282,
+    "records_excluded": 5984,
+    "exclusion_reasons": {
+      "Not addressing Retrieval-Augmented Generation or knowledge-intensive NLP": 3842,
+      "General LLM pretraining or pure hardware without retrieval evaluation": 1420,
+      "Non-peer-reviewed notes, non-English publications, or duplicates": 722
+    },
+    "reports_sought_for_retrieval": 298,
+    "reports_retrieved": 298
+  },
+  "eligibility": {
+    "full_text_reports_assessed": 298,
+    "reports_excluded": 256,
+    "exclusion_reasons": {
+      "Monolithic prompt concatenation without explicit retrieval-reasoning decoupling": 114,
+      "Lacking quantitative metrics on calibration, attribution, or multi-hop correctness": 82,
+      "Proprietary/commercial black-box API without architectural reproducibility": 60
+    },
+    "final_studies_included": 42
+  },
+  "included_taxonomy": {
+    "epistemic_calibration_uncertainty": {
+      "count": 11,
+      "core_papers": [
+        {
+          "citation": "Guo et al. (ICML 2017)",
+          "focus": "Expected Calibration Error & Temperature Scaling"
+        },
+        {
+          "citation": "Ni et al. (ACM CSUR 2026)",
+          "focus": "Survey on Epistemic Calibration in Trustworthy RAG"
+        },
+        {
+          "citation": "Min et al. (EMNLP 2023)",
+          "focus": "FActScore: Atomic Precision & Factuality"
+        },
+        {
+          "citation": "Kadavath et al. (arXiv 2022)",
+          "focus": "Language Models (Mostly) Know What They Know"
+        },
+        {
+          "citation": "Lin et al. (ACL 2023)",
+          "focus": "Generating with Confidence: Uncertainty Quantification"
+        }
+      ]
+    },
+    "citation_attribution_faithfulness": {
+      "count": 12,
+      "core_papers": [
+        {
+          "citation": "Lewis et al. (NeurIPS 2020)",
+          "focus": "Foundational Retrieval-Augmented Generation"
+        },
+        {
+          "citation": "Karpukhin et al. (EMNLP 2020)",
+          "focus": "Dense Passage Retrieval for Open-Domain QA"
+        },
+        {
+          "citation": "Gao et al. (ACL 2023)",
+          "focus": "Enabling Large Language Models to Generate Text with Citations"
+        },
+        {
+          "citation": "Bohnet et al. (EACL 2023)",
+          "focus": "Attributed Question Answering with Evidence Verification"
+        },
+        {
+          "citation": "Yue et al. (arXiv 2023)",
+          "focus": "Automatic Evaluation of Attribution by Fine-Grained NLI"
+        }
+      ]
+    },
+    "conflict_resolution_dialectics": {
+      "count": 9,
+      "core_papers": [
+        {
+          "citation": "Yuan et al. (ACL 2026)",
+          "focus": "ConfRAG: Contradiction Resolution without Winner Forcing"
+        },
+        {
+          "citation": "Chen et al. (ACL 2024)",
+          "focus": "Resolving Knowledge Conflicts in Language Models"
+        },
+        {
+          "citation": "Xu et al. (EMNLP 2024)",
+          "focus": "Handling Contradictory Information in Multi-Source Retrieval"
+        },
+        {
+          "citation": "Wang et al. (SIGIR 2024)",
+          "focus": "Dialectical Information Retrieval & Evidence Balance"
+        }
+      ]
+    },
+    "multihop_reasoning_entailment_graphs": {
+      "count": 10,
+      "core_papers": [
+        {
+          "citation": "Dalvi et al. (EMNLP 2021)",
+          "focus": "Explaining Answers with Entailment Trees"
+        },
+        {
+          "citation": "Yao et al. (ICLR 2023)",
+          "focus": "ReAct: Synergizing Reasoning and Acting in Language Models"
+        },
+        {
+          "citation": "Asai et al. (ICLR 2024)",
+          "focus": "Self-RAG: Learning to Retrieve, Generate, and Critique"
+        },
+        {
+          "citation": "Yan et al. (ACL 2024)",
+          "focus": "CRAG: Corrective Retrieval Augmented Generation"
+        },
+        {
+          "citation": "Trivedi et al. (ACL 2023)",
+          "focus": "Interleaving Retrieval with Chain-of-Thought for Multi-Hop QA"
+        }
+      ]
+    }
+  }
+}
