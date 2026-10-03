@@ -268,12 +268,13 @@ Evaluated across the 100 benchmark queries against the Full Cogent reference:
 ## 12. Secondary Calibration & Attribution Metrics
 
 * **Brier Score**:
-  - Cogent: **$0.1134$** (indicating sharp, well-calibrated probabilistic risk gating)
+  - Cogent: **$0.1134$** (lower probabilistic prediction error on the evaluated benchmark)
   - Reranked RAG: **$0.3616$**
   - Naive RAG: **$0.3921$**
-* **Citation Coverage / Recall**:
+* **Citation Coverage**:
   - Cogent: **$44.46\%$** [95% CI: $41.80\% - 47.12\%$]
   - Naive RAG: **$73.00\%$**
   - Reranked RAG: **$82.00\%$**
+  - *Definition*: Citation Coverage = fraction of generated claims that received at least one citation token. This is **not recall** (no explicit ground-truth set of citation-required claims was defined); it measures attribution selectivity, not completeness.
   - *Interpretation & Paper Phrasing*: Cogent's lower raw coverage is deliberate and architectural: baselines spray indiscriminate citation markers across general sentences, whereas Cogent only attributes verifiable empirical claims passing $L_5$ atomic extraction and $L_8$ attribution mapping, yielding a near-perfect Citation Precision of **$98.20\%$**.
 
